@@ -19,7 +19,7 @@
       <h1>Garantizamos talento en tiempo récord para que tu empresa nunca se detenga.</h1>
       <p>
         Somos la agencia de reclutamiento más rápida y eficiente, con más de 29 años de experiencia conectando empresas con el 
-        mejor talento. Nuestro proceso está garantizado, asegurando candidatos calificados enmenos de 72 horas.
+        mejor talento. Nuestro proceso está garantizado, asegurando candidatos calificados en menos de 72 horas.
       </p>
       <div class="botones">
       <a href="#servicios" class="btnn">¿Buscas Trabajo?</a>
@@ -43,9 +43,9 @@
       <p>
         En ESCARH conectamos empresas con el mejor talento, optimizando tiempos y asegurando calidad en cada contratación.
         Nos especializamos en procesos eficientes, personalizados y con tecnología avanzada para encontrar el perfil ideal.
-        Más que un servicio, ofrecemos un socio estratégico en la gestión de tu capital humano. 
-      </p>
-      <h1>Nuestros</h1>
+        </p>
+        <p>Más que un servicio, ofrecemos un socio estratégico en la gestión de tu capital humano. </p>
+      <h1>Nuestros Valores</h1>
       <p><b>Compromiso:</b> Nos entregamos al 100% en cada proyecto, buscando siempre la excelencia.</p>
       <p><b>Honestidad:</b> Actuamos con transparencia, generando confianza en todas nuestras relaciones.</p>
       <p><b>Responsabilidad:</b> Cumplimos con nuestros compromisos, garantizando resultados de calidad.</p>
@@ -72,7 +72,7 @@
                 de atracción de talento para encontrar al mejor candidato. La cotización se ajusta al volumen de vacantes,
                 y la factura se genera una vez cumplida la garantía de 15 o 21 días, según lo establecido en la cotización.
             </p>
-            <a href="#" class="btn2">Cotizar</a>
+            <a href="<?= base_url('/cotizar') ?>" class="btn2">Cotizar</a>
         </div>
 
         <div class="servicio">
@@ -84,7 +84,7 @@
                 Somos expertos en perfiles operativos, técnicos, administrativos, altos mandos y TI. Realizamos psicometrías,
                 verificaciones de referencias y ofrecemos garantía de 30 a 60 días según la posición.
             </p>
-            <a href="#" class="btn2">Cotizar</a>
+            <a href="<?= base_url('/cotizar') ?>" class="btn2">Cotizar</a>
         </div>
     </div>
 
@@ -97,7 +97,7 @@
                 Contamos con personal administrativo, operativo, mandos medios y gerenciales, asegurando siempre 
                 el mejor perfil para tu empresa.
             </p>
-            <a href="#" class="btn2">Cotizar</a>
+            <a href="<?= base_url('/cotizar') ?>" class="btn2">Cotizar</a>
         </div>
 
         <div class="servicio">
@@ -109,7 +109,7 @@
                 registros patronales y antecedentes en procesos legales, garantizando así una contratación
                 segura y confiable.
             </p>
-            <a href="#" class="btn2">Cotizar</a>
+            <a href="<?= base_url('/cotizar') ?>" class="btn2">Cotizar</a>
         </div>
     </div>
 
@@ -123,7 +123,7 @@
                 en zonas especifícas y volanteo para maximizar el impacto de tu mensaje y llegar a tu 
                 audencia ideal.
             </p>
-            <a href="#" class="btn2">Cotizar</a>
+            <a href="<?= base_url('/cotizar') ?>" class="btn2">Cotizar</a>
         </div>
      </div>
 </div>
@@ -159,26 +159,26 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label">Nombre</label>
-                                <input type="text" class="form-control" placeholder="Escriba nombre completo">
+                                <input type="text" class="form-control" placeholder="Escriba nombre completo" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Correo</label>
-                                <input type="email" class="form-control" placeholder="Ej. contacto@empresa.com">
+                                <input type="email" class="form-control" placeholder="Ej. contacto@empresa.com" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label">Empresa</label>
-                                <input type="text" class="form-control" placeholder="Ej. empresa">
+                                <input type="text" class="form-control" placeholder="Ej. empresa" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Municipio/Delegación</label>
-                                <input type="text" class="form-control" placeholder="Escribe Municipio/Delegación">
+                                <input type="text" class="form-control" placeholder="Escribe Municipio/Delegación" required>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Teléfono</label>
-                            <input type="tel" class="form-control" placeholder="10 dígitos">
+                            <input type="tel" class="form-control" placeholder="10 dígitos" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Servicios</label>
@@ -192,7 +192,7 @@
                             <label class="form-label">Información adicional</label>
                             <textarea class="form-control" rows="4" placeholder="Describe tu solicitud"></textarea>
                         </div>
-                        <button type="submit" class="btn3">Enviar Solicitud</button>
+                        <button type="submit" class="btn3" disabled>Enviar Solicitud</button>
                     </form>
                 </div>
             </div>
@@ -232,6 +232,23 @@ document.addEventListener("DOMContentLoaded", function () {
     menuInicio.addEventListener("click", function (event) {
         event.preventDefault(); // Evita la navegación a otra página
         inicioContainer.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
+    });
+
+    /*const menuCotizar = document.querySelector("a[href='<.?= base_url('/cotizar') ?>']");
+    const cotizarContainer = document.querySelector(".container");
+
+    menuCotizar.addEventListener("click", function (event) {
+        event.preventDefault(); // Evita la navegación a otra página
+        cotizarContainer.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
+    });*/
+    const cotizarButtons = document.querySelectorAll(".btn2"); // Selecciona todos los botones "Cotizar"
+    const containerSection = document.querySelector(".container"); // Selecciona la sección destino
+
+    cotizarButtons.forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault(); // Evita la navegación si el href no es necesario
+            containerSection.scrollIntoView({ behavior: "smooth" }); // Desplazamiento suave
+        });
     });
 });
 
