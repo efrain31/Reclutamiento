@@ -198,7 +198,20 @@ img {
     font-weight: bold;
     margin-bottom: 30px;
     }
-    .btn2:hover {
+    .btn2:hover, .btn2:focus {
+    background-color: #1f225b;
+     }
+     .btn4 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #282977;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    }
+    .btn4:hover, .btn4:focus {
     background-color: #1f225b;
      }
     .circle {
@@ -349,6 +362,12 @@ img {
 
 .btnn:hover, .btn1:hover, .btn3:hover{
     opacity: 0.8;
+}
+.btnn:focus{
+    background-color: #26335D;
+}
+.btn1:focus{
+    background-color: #EE771C;
 }
 .btn1 {
     background-color: #EE771C;

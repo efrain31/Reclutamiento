@@ -30,8 +30,8 @@
                 <a href="<?= base_url('/registros') ?>" class="button-item">Registrate</a>
             </li>
 
-            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/iniciar_sesion') ? 'active' : '' ?>">
-                <a href="<?= base_url('/iniciar_sesion') ?>" class="button-item-bri">Iniciar Sesión</a>
+            <li class="menu-item hidden">
+                <a href="#" class="button-item-bri">Iniciar Sesión</a>
             </li>
 
              </nav>  
