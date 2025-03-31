@@ -23,17 +23,39 @@ class Database extends Config
      * The default database connection.
      *
      * @var array<string, mixed>
-     */
+     */    
     public array $default = [
+        'DSN'        => '',
+         'hostname'   => 'localhost',
+         'username'   => 'postgres',
+         'password'   => '1234',
+         'database'   => 'escarh',
+         'schema'     => 'public',
+         'DBDriver'   => 'Postgre',
+         'DBPrefix'   => '',
+         'pConnect'   => false,
+         'DBDebug'    => true,
+         'charset'    => 'utf8',
+         'swapPre'    => '',
+         'failover'   => [],
+        'port'       => 5432,
+         'dateFormat' => [
+             'date'     => 'Y-m-d',
+             'datetime' => 'Y-m-d H:i:s',
+             'time'     => 'H:i:s',
+         ],
+     ];
+
+   /* public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => '',
-        'password'     => '',
+        'username'     => 'root',
+        'password'     => '123456789',
         'database'     => 'escarh',
-        'DBDriver'     => 'MySQLi',
+        'DBDriver'     => 'Postgre',
         'DBPrefix'     => '',
         'pConnect'     => false,
-        'DBDebug'      => true,
+        'DBDebug'      => (ENVIRONMENT !== 'production'),
         'charset'      => 'utf8mb4',
         'DBCollat'     => 'utf8mb4_general_ci',
         'swapPre'      => '',
@@ -41,7 +63,7 @@ class Database extends Config
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 3306,
+        'port'         => 5432,
         'numberNative' => false,
         'foundRows'    => false,
         'dateFormat'   => [
@@ -49,7 +71,7 @@ class Database extends Config
             'datetime' => 'Y-m-d H:i:s',
             'time'     => 'H:i:s',
         ],
-    ];
+    ];*/
 
     //    /**
     //     * Sample database connection for SQLite3.
@@ -78,27 +100,27 @@ class Database extends Config
     //     *
     //     * @var array<string, mixed>
     //     */
-    //    public array $default = [
-    //        'DSN'        => '',
-    //        'hostname'   => 'localhost',
-    //        'username'   => 'root',
-    //        'password'   => 'root',
-    //        'database'   => 'ci4',
-    //        'schema'     => 'public',
-    //        'DBDriver'   => 'Postgre',
-    //        'DBPrefix'   => '',
-    //        'pConnect'   => false,
-    //        'DBDebug'    => true,
-    //        'charset'    => 'utf8',
-    //        'swapPre'    => '',
-    //        'failover'   => [],
-    //        'port'       => 5432,
-    //        'dateFormat' => [
-    //            'date'     => 'Y-m-d',
-    //            'datetime' => 'Y-m-d H:i:s',
-    //            'time'     => 'H:i:s',
-    //        ],
-    //    ];
+        /*public array $default = [
+           'DSN'        => '',
+            'hostname'   => 'localhost',
+            'username'   => 'root',
+            'password'   => '123456789',
+            'database'   => 'escarh',
+            'schema'     => 'public',
+            'DBDriver'   => 'Postgre',
+            'DBPrefix'   => '',
+            'pConnect'   => false,
+            'DBDebug'    => true,
+            'charset'    => 'utf8',
+            'swapPre'    => '',
+            'failover'   => [],
+           'port'       => 5432,
+            'dateFormat' => [
+                'date'     => 'Y-m-d',
+                'datetime' => 'Y-m-d H:i:s',
+                'time'     => 'H:i:s',
+            ],
+        ];*/
 
     //    /**
     //     * Sample database connection for SQLSRV.
@@ -165,11 +187,11 @@ class Database extends Config
     public array $tests = [
         'DSN'         => '',
         'hostname'    => '127.0.0.1',
-        'username'    => '',
-        'password'    => '',
-        'database'    => ':memory:',
-        'DBDriver'    => 'SQLite3',
-        'DBPrefix'    => 'db_',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
+        'username'    => 'postgres',
+        'password'    => '1234',
+        'database'    => 'escarh',
+        'DBDriver'    => 'Postgre',
+        'DBPrefix'    => '',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
         'pConnect'    => false,
         'DBDebug'     => true,
         'charset'     => 'utf8',
@@ -179,7 +201,7 @@ class Database extends Config
         'compress'    => false,
         'strictOn'    => false,
         'failover'    => [],
-        'port'        => 3306,
+        'port'        => 5432,
         'foreignKeys' => true,
         'busyTimeout' => 1000,
         'dateFormat'  => [

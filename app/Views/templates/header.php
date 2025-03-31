@@ -18,16 +18,16 @@
                 <a href="<?= base_url('/inicio') ?>">Inicio</a>
             </li>
 
-            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/nosotro') ? 'active' : '' ?>">
-                <a href="<?= base_url('/nosotro') ?>">Nosotros</a>
+            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/nosotros') ? 'active' : '' ?>">
+                <a href="<?= base_url('/nosotros') ?>" id="btnNosotros">Nosotros</a>
             </li>
 
-            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/bolsa') ? 'active' : '' ?>">
-                <a href="<?= base_url('/bolsa') ?>">Bolsa de Empleo</a>
+            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/bolsat') ? 'active' : '' ?>">
+                <a href="<?= base_url('/bolsat') ?>" id="btnBolsa">Bolsa de Empleo</a>
             </li>
 
-            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/registros') ? 'active' : '' ?>">
-                <a href="<?= base_url('/registros') ?>" class="button-item">Registrate</a>
+            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/registro') ? 'active' : '' ?>">
+                <a href="<?= base_url('/registro') ?>" class="button-item">Registrate</a>
             </li>
 
             <li class="menu-item hidden">
