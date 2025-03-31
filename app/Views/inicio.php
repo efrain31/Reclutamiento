@@ -34,30 +34,30 @@
     </div>
 
     <!-- Segunda seccion-->
-    <div class="inicio-container2"> <!-- Sección derecha: círculo con imagen -->
+    <div id="nosotros" class="inicio-container2"> <!-- Sección derecha: círculo con imagen -->
     <div class="circle2">
       <img src="<?= base_url('img/4.png') ?>" alt="Imagen de la prenda" class="animate-img">
     </div>  
     <div class="info2">  <!-- Sección derecha: información -->
-      <h1>¿Por qué Escarh?</h1>
+      <h1>¿Quiénes somos?</h1>
       <p>
-        En ESCARH conectamos empresas con el mejor talento, optimizando tiempos y asegurando calidad en cada contratación.
-        Nos especializamos en procesos eficientes, personalizados y con tecnología avanzada para encontrar el perfil ideal.
+      En ESCARH conectamos a las empresas con el mejor talento, optimizando tiempos y garantizando calidad en cada contratación.</p>
+      <p>Nos especializamos en procesos eficientes, personalizados y con tecnología avanzada para ofrecer soluciones rápidas y efectivas.
         </p>
-        <p>Más que un servicio, ofrecemos un socio estratégico en la gestión de tu capital humano. </p>
+        <p>Más que un servicio, somos tu socio estratégico en la gestión del capital humano.</p>
       <h1>Nuestros Valores</h1>
       <p><b>Compromiso:</b> Nos entregamos al 100% en cada proyecto, buscando siempre la excelencia.</p>
       <p><b>Honestidad:</b> Actuamos con transparencia, generando confianza en todas nuestras relaciones.</p>
       <p><b>Responsabilidad:</b> Cumplimos con nuestros compromisos, garantizando resultados de calidad.</p>
       <h2>¡Además estamos certificados!</h2>
-      
+      <div class ="certificado">
       <img src="<?= base_url('img/6.png') ?>" alt="Imagen de certificado" class="certifica animate-img">
-    
+      </div>
     </div>  
 </div>
 
 <!-- Tercera seccion-->
-<div class="inicio-container3">   
+<div id="bolsas" class="inicio-container3">   
 <h2>Nuestros Servicios</h2>
 <p> Deja que nos ocupemos de lo complicado y usa tu tiempo en lo que realmente importa.</p>
 <p><strong>Conoce nuestros servicios con alcance nacional.</strong></p>
@@ -104,7 +104,7 @@
             <img src="<?= base_url('img/socioeconomicos.png') ?>" alt="Socioeconómicos" class="animate-img">
             <h3>Socioeconómicos</h3>
             <p>
-                Realizamos una visita domiciliaris para validar la información del candidato, asegurando
+                Realizamos una visita domiciliaria para validar la información del candidato, asegurando
                 transparencia y confianza en el proceso de selección. Además, verificamos sus últimos empleos,
                 registros patronales y antecedentes en procesos legales, garantizando así una contratación
                 segura y confiable.
@@ -118,7 +118,7 @@
     <img src="<?= base_url('img/perifoneo.png') ?>" alt="Perifoneo" class="animate-img">
             <h3>Perifoneo</h3>
             <p>
-                Nuestro servicio de perifoneo garantiza una comunicación efectiva y dirigida. Incluye la
+                Nuestro servicio de perifoneo garantiza una comunicación efectiva y dirigida a los candidatos. Incluye la
                 creación de audios personalizados, diseño de volantes atractivos, recorridos estratégicos
                 en zonas especifícas y volanteo para maximizar el impacto de tu mensaje y llegar a tu 
                 audencia ideal.
@@ -133,66 +133,100 @@
     <div class="circle4">
       <img src="<?= base_url('img/5.png') ?>" alt="Imagen de la prenda" class="animate-img">
     </div>  
-    <div class="info4"> <!-- Sección derecha: información -->
+    <div class="faq-container"> <!-- Sección derecha: información -->
     <!--<div class="linea"></div>-->
-      <h1>Políticas Generales</h1>
-      <ul>
-        <li>El costo del servicio se genera en la cotización + IVA.</li>
-        <li>La cotización tiene una vigencia de 8 días para su aceptación.</li>
-        <li>Se cuenta con 15 días para el pago de la factura.</li>
-        <li>En caso de que no haya una contratación, no se generan honorarios.</li>
-        <li>La agencia se reserva el derecho de declinar el reclutamiento cuanc.</li>
-    </ul>
-    <h2 class="cotizacion">¡Haz tu cotización ahora!</h2>
+    <h3>PREGUNTAS Y RESPUESTAS</h3>
+    <h1>Preguntas Frecuentes</h1>
+    <div class="faq-grid">
+        <div class="faq-item">
+        <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
+           <!-- <span class="faq-icon">●</span>-->
+            <div>
+                <strong>¿Cómo puedo postularme a una vacante?</strong><br>
+                <p>Puedes revisar nuestras ofertas de empleo en la sección de Bolsa de Trabajo y postularte directamente llenando el formulario o enviando tu CV a nuestro correo de contacto.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+        <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
+            <!--<span class="faq-icon">●</span>-->
+            <div>
+                <strong>¿En qué países opera ESCARH?</strong><br>
+                <p>Trabajamos con empresas en diferentes estados de la República Mexicana. Contáctanos para más detalles sobre nuestra cobertura.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+        <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
+        <!--<span class="faq-icon">●</span>-->
+            <div>
+                <strong>¿Cómo puedo contratar sus servicios?</strong><br>
+                <p>Para solicitar nuestros servicios, puedes ponerte en contacto con nosotros a través del formulario en nuestra página web, llamarnos o enviarnos un correo con tus necesidades específicas.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+        <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
+        <!--<span class="faq-icon">●</span>-->
+            <div>
+                <strong>¿ESCARH solo trabaja con empresas o también con candidatos?</strong><br>
+                <p>Brindamos apoyo tanto a empresas que buscan el mejor talento como a candidatos que desean encontrar oportunidades laborales acordes a su perfil y experiencia.</p>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
+
 <!-- Quinta seccion-->
 <div class="container">
         <div class="row container-custom">
             <div class="col-md-5 text-md-start text-center mb-4">
                 <h2 class="fw-bold">¡Comienza ya tu reclutamiento!</h2>
                 <p>Si desea acceder a nuestros servicios de reclutamiento, complete el formulario a continuación para dar inicio a su proyecto. En ESCARH, nos especializamos en la búsqueda y selección de talento.</p>
+                <?php if (session()->getFlashdata('success')): ?>
+                <p><?= session()->getFlashdata('success') ?></p>
+                <?php endif; ?>
             </div>
             <div class="col-md-7">
                 <div class="form-container">
-                    <form action="/submit" method="POST">
+                    <form action="/inicio/store" method="POST">
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label">Nombre</label>
-                                <input type="text" class="form-control" placeholder="Escriba nombre completo" required>
+                                <input type="text" class="form-control" name="nombre" placeholder="Escriba nombre completo" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Correo</label>
-                                <input type="email" class="form-control" placeholder="Ej. contacto@empresa.com" required>
+                                <input type="email" class="form-control" name="correo" placeholder="Ej. contacto@empresa.com" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label">Empresa</label>
-                                <input type="text" class="form-control" placeholder="Ej. empresa" required>
+                                <input type="text" class="form-control" name="empresa" placeholder="Ej. empresa" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Municipio/Delegación</label>
-                                <input type="text" class="form-control" placeholder="Escribe Municipio/Delegación" required>
+                                <input type="text" class="form-control" name="municipio" placeholder="Escribe Municipio/Delegación" required>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Teléfono</label>
-                            <input type="tel" class="form-control" placeholder="10 dígitos" required>
+                            <input type="tel" class="form-control" name="celular" placeholder="10 dígitos" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Servicios</label>
-                            <select class="form-select">
+                            <select class="form-select" name="servicio">
                                 <option>Selecciona</option>
-                                <option>Reclutamiento</option>
-                                <option>Selección de Personal</option>
+                                <option>Reclutamiento Masivo</option>
+                                <option>Reclutamiento Especializado (Head Hunting)</option>
+                                <option>Psicometrías</option>
+                                <option>Socioeconómicos</option>
+                                <option>Perifoneo</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Información adicional</label>
-                            <textarea class="form-control" rows="4" placeholder="Describe tu solicitud"></textarea>
+                            <textarea class="form-control" rows="4" name="adicional" placeholder="Describe tu solicitud"></textarea>
                         </div>
-                        <button type="submit" class="btn3" disabled>Enviar Solicitud</button>
+                        <button type="submit" class="btn3">Enviar Solicitud</button> <!-- 'disabled' para que no funcione el boton-->
                     </form>
                 </div>
             </div>
@@ -202,7 +236,7 @@
 
     <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const menuNosotros = document.querySelector("a[href='<?= base_url('/nosotro') ?>']");
+    const menuNosotros = document.querySelector("a[href='<?= base_url('/nosotros') ?>']");
     const inicioContainer2 = document.querySelector(".inicio-container2");
 
     menuNosotros.addEventListener("click", function (event) {
@@ -210,15 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
         inicioContainer2.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
     });
 
-    const menuRegistro = document.querySelector("a[href='<?= base_url('/registros') ?>']");
-    const registroContainer = document.querySelector(".container");
-
-    menuRegistro.addEventListener("click", function (event) {
-        event.preventDefault(); // Evita la navegación a otra página
-        registroContainer.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
-    });
-
-    const menuBolsa = document.querySelector("a[href='<?= base_url('/bolsa') ?>']");
+    const menuBolsa = document.querySelector("a[href='<?= base_url('/bolsat') ?>']");
     const bolsaContainer = document.querySelector(".inicio-container3");
 
     menuBolsa.addEventListener("click", function (event) {
@@ -234,13 +260,6 @@ document.addEventListener("DOMContentLoaded", function () {
         inicioContainer.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
     });
 
-    /*const menuCotizar = document.querySelector("a[href='<.?= base_url('/cotizar') ?>']");
-    const cotizarContainer = document.querySelector(".container");
-
-    menuCotizar.addEventListener("click", function (event) {
-        event.preventDefault(); // Evita la navegación a otra página
-        cotizarContainer.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
-    });*/
     const cotizarButtons = document.querySelectorAll(".btn2"); // Selecciona todos los botones "Cotizar"
     const containerSection = document.querySelector(".container"); // Selecciona la sección destino
 

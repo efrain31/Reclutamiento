@@ -20,6 +20,10 @@ img {
     opacity: 1;
     transform: translateY(0);
 }
+ .certificado{
+    margin: 0 0 15px 290px;
+    max-width: 100%;
+}
 .menu-item.active a {
     color: #282977; /* Color del texto */
     font-weight: bold; /* Resalta el texto */
@@ -29,20 +33,6 @@ img {
 .circle, .circle2, .circle4 {
     max-width: 90%; /* Para que no ocupen demasiado espacio */
     height: auto;
-}
-.inicio-container, .politicas-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-}
-.inicio-container2{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
         .container h2, .container p {
             color: #282977;
@@ -85,14 +75,17 @@ img {
 }
 .politicas-container {
       display: flex;
-      align-items: center;  /* Alinea verticalmente */
-      justify-content: center;
-      padding: 120px 0 0;
+      /*align-items: center; */ /* Alinea verticalmente */
+      /*justify-content: center;
+      padding: 120px 0 0;*/
       gap: 120px; /*para separar el texto del circulo con la imagen*/
-      flex-wrap: wrap; /* Evita desbordamientos en pantallas más pequeñas */
-      max-width: 100%; /* Antes no tenía ancho definido, ahora ocupa el 90% */
-      flex-direction: row-reverse;
-      background-color: #26335D;
+      /*flex-wrap: wrap;*/ /* Evita desbordamientos en pantallas más pequeñas */
+     /* max-width: 100%;*/ /* Antes no tenía ancho definido, ahora ocupa el 90% */
+    padding: 40px;
+    max-width: 100%;
+    margin: auto;
+    flex-direction: row-reverse;
+    background-color: #26335D;
     }
     .linea {
     width: 50px;
@@ -101,17 +94,17 @@ img {
     margin-bottom: 5px;
     text-align: center;
 }
-.politicas-container ul {
+/*.politicas-container ul {
     list-style-type: disc; /* Agrega los puntos */
     /*padding-left: 20px;*/ /* Espacio para alinear con los puntos */
-    color: white;
+   /* color: white;
     padding: 0 0 10px 150px;
-}
+}*/
 
-.politicas-container ul li {
+/*.politicas-container ul li {
     font-size: 1.2rem;
     margin-bottom: 10px;
-}
+}*/
 .cotizacion {
     font-size: 2rem;
     font-weight: bold;
@@ -271,18 +264,12 @@ img {
       height: 130%;   
       object-fit: contain;    
       position: relative;   
-      top: -75px; /* Ajusta este valor según lo necesites */
+      top: -25px; /* Ajusta este valor según lo necesites */
     }
-    /* Sección de información */
     .info {
     flex: 1;
-   /* max-width: 600px;*/
     }
     .info2 {
-    flex: 1;
-   /* max-width: 600px;*/
-    }
-    .info4 {
     flex: 1;
    /* max-width: 600px;*/
     }
@@ -309,11 +296,56 @@ img {
     color: #282977;
     max-width: 100%; /*650px */
     }
-    .info4 h1,.info4 h2, .info4 p {
-    margin: 0 110px 15px; 
-    text-align: left;
-    color:rgb(255, 255, 255);
-    max-width: 100%;
+    .faq-container {
+        /*background-color: #2A2F66;
+        padding: 40px;
+        border-radius: 10px;*/
+        max-width: 900px;
+        margin: auto;
+        /*text-align: center;*/
+    }
+    .faq-container h3 {
+        color:rgb(206, 207, 208);
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .faq-container h1 {
+        color: #ffffff;
+        font-size: 28px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .faq-item {
+        display: flex;
+        align-items: flex-start;
+       /* background-color: rgba(255, 255, 255, 0.1);
+       border-radius: 8px;*/
+        padding: 15px;
+       
+    }
+    .faq-icon {
+        /*color: #5DADE2;
+        font-size: 24px;*/
+        margin-right: 15px;
+    }
+
+    .faq-item strong {
+        color:rgb(255, 255, 255);
+        font-size: 18px;
+    }
+
+    .faq-item p {
+        color:rgb(206, 207, 208);
+        font-size: 16px;
+        margin-top: 5px;
+        text-align: left;
     }
     .info2 h1 {
     font-size: 2.9rem;
@@ -325,19 +357,6 @@ img {
     }
     .info2 p {
     line-height: 1.5;
-    }
-    .info4 h1 {
-    font-size: 2.9rem;
-    margin-bottom: 30px;
-    }
-    .info4 h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    }
-    .info4 p {
-    line-height: 1.5;
-    padding: 0 50px 0;
-    margin-bottom: 155px;
     }
    
      /* Contenedor de los botones */
@@ -375,11 +394,38 @@ img {
 .btnn, .btn3{
     background-color: #26335D;
 }
+.registro {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x)* .5);
+    padding-left: calc(var(--bs-gutter-x)* .5);
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1320px;
+        background-color:rgb(255, 255, 255);
+      }
+      .registro h2, .registro p{
+        color: #282977;
+      }
+      .form-registro {
+            background:rgb(254, 254, 254);
+            padding: 30px;
+            /*border-radius: 10px;*/
+        }
     /* Responsividad */
     @media (max-width: 768px) {
 
-    .info2 h1,.info2 h2, .info h1 {
+   .info2 h2, .info h1 {
     text-align: left;
+    color: #282977;
+    max-width: 100%; /*650px */
+    font-size: 1.4rem;
+    margin: 0;
+    margin-bottom: 20px;
+    }
+    .info2 h1 {
+    text-align: center;
     color: #282977;
     max-width: 100%; /*650px */
     font-size: 2rem;
@@ -389,32 +435,32 @@ img {
     .info2 p, .info p {
     text-align: left;
     color: #282977;
-    max-width: 100%; /*650px */
+    max-width: 100%;
     font-size: 1rem;
     margin: 0;
     margin-bottom: 20px;
     }
-    .info4 h1 {
-    text-align: left;
-    color:rgb(254, 254, 255);
-    max-width: 100%; /*650px */
-    font-size: 2rem;
-    margin: 0;
-    margin-bottom: 20px; 
-    }
-    .info4 h2 {
-    text-align: left;
-    color:rgb(254, 254, 255);
-    max-width: 100%; /*650px */
-    font-size: 1.5rem;
-    margin: 0;
-    margin-bottom: 20px; 
-    }
-    .info4 p {
+    .faq-container h1 {
     text-align: center;
-    color:rgb(251, 251, 251);
-    max-width: 100%; /*650px */
-    font-size: 1rem;
+    color:rgb(254, 254, 255);
+    max-width: 100%; 
+    font-size: 28px;
+    margin: 0;
+    margin-bottom: 20px; 
+    }
+    .faq-container h3 {
+    text-align: center;
+    color:rgb(206, 207, 208);
+    max-width: 100%;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 20px; 
+    }
+    .faq-container p {
+    text-align: left;
+    color:rgb(206, 207, 208);
+    max-width: 100%; 
+    font-size: 16px;
     margin: 0;
     margin-bottom: 20px;
     }
@@ -423,6 +469,10 @@ img {
     padding: 10px 0 0;
     margin-bottom: 30px;
     }
+    .certificado{
+    margin: 0 0 15px 0;
+    max-width: 100%;
+}
     .circle2 img {
       width: 100%;    
       height: 129%;   
@@ -448,15 +498,15 @@ img {
     .politicas-container {
         flex-direction: column;
         gap: 40px; /* Reduce la separación */
-        padding: 50px 20px; /* Ajusta el padding para evitar desbordamientos */
+        /*padding: 50px 20px; /* Ajusta el padding para evitar desbordamientos */
     }
     
-    .politicas-container ul {
+    /*.politicas-container ul {
         padding: 20px;
     }
     .politicas-container h1, .politicas-container p {
         padding: 20px;
-    }
+    }*/
     .inicio-container, 
     .inicio-container2, 
     .inicio-container3 {
@@ -465,10 +515,26 @@ img {
         /*padding: 50px 20px;*/
     }
     .inicio-container, .inicio-container2, .inicio-container3, 
-    .politicas-container, .container {
+     .container, .registro {
     width: 100%;
     max-width: 100%;
     padding: 20px;
+}
+   .inicio-container3 h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #282977;
+    max-width: 100%; /*650px */
+    margin: 0;
+    margin-bottom: 20px;
+}
+   .inicio-container3 p {
+    font-size: 1rem;
+    text-align: left;
+    color: #282977;
+    max-width: 100%; /*650px */
+    margin: 0;
+    margin-bottom: 20px;
 }
     .circle, .circle2, .circle4 {
         height: 300px;
@@ -482,7 +548,7 @@ img {
         top: 0; /* Eliminar el desplazamiento */  
         position: relative; 
     }
-    .info, .info2, .info4 {
+    .info, .info2 {
         text-align: center;
         margin: 0 auto;
         max-width: 90%;
@@ -503,9 +569,7 @@ img {
     text-align: center;
     min-width: 150px;
 }
-}
-@media screen and (max-width: 768px) {
-    .container {
+.container, .registro {
         flex-direction: column;
         align-items: center;
     }
@@ -515,8 +579,13 @@ img {
         text-align: center;
         margin-bottom: 20px;
     }
+.registro {
+    max-width: 720px;
 }
-
+.faq-grid {
+            grid-template-columns: 1fr;
+        }
+}
 @media screen and (max-width: 480px) {
     input, select, textarea, button {
         font-size: 14px;

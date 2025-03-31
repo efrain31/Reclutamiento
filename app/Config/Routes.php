@@ -1,7 +1,7 @@
 <?php
 
 use CodeIgniter\Router\RouteCollection;
-use App\Controllers\Autenticacion;
+use App\Controllers\Registros;
 use App\Controllers\Dashboard;
 use App\Controllers\Inicios;
 /**
@@ -10,9 +10,10 @@ use App\Controllers\Inicios;
 /*$routes->get('/', 'Home::index');*/
 
 $routes->get('/inicio', 'Inicios::index');
-$routes->get('/registro', 'Autenticacion::registros');
-$routes->post('/registro/store', 'Autenticacion::store');
-$routes->get('/login', 'Autenticacion::login');
-$routes->post('/auth', 'Autenticacion::auth');
+$routes->get('/registro', 'Registros::registros');
+$routes->post('/registro/store', 'Registros::store');
+$routes->post('/inicio/store', 'Registros::store2');
+$routes->get('/inicio', 'Registros::login');
+$routes->post('/auth', 'Registros::auth');
 $routes->get('/dashboard', 'Dashboard::index', ['filter' => 'authGuard']);
-$routes->get('/logout', 'Autenticacion::logout');
+$routes->get('/logout', 'Registros::logout');
