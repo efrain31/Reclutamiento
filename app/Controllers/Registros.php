@@ -48,7 +48,7 @@ class Registros extends Controller
         ];
        // print_r($data);exit;
 
-        $id = $registrosModel->insert($data);
+        $registrosModel->insert($data);
         //print_r($id); exit;
         return redirect()->to('/inicio')->with('success', 'Registro exitoso');
     //} catch (\Exception $e) {

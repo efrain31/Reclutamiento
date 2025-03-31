@@ -39,7 +39,7 @@
     </div>
     </div>
     <div class= "version">
-    &copy;<script>document.write(new Date().getFullYear())</script>Escarh<span class="d-none d-sm-inline-block"> - v.1.0.2 </span> 
+    &copy;<script>document.write(new Date().getFullYear())</script> Escarh <span class="d-none d-sm-inline-block"> - v.1.0.3 </span> 
    </div>
 </footer>
 
@@ -53,6 +53,7 @@
         }
         .version {
             color: white;
+            font-size: 10px;
         }
         section {
             margin: 0 auto;

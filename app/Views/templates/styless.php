@@ -274,7 +274,7 @@ img {
    /* max-width: 600px;*/
     }
     .certifica {
-    width: 20%;
+    width: 30%;
     padding: 10px 0 0;
     margin-bottom: 30px;
     }
