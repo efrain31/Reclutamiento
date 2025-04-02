@@ -21,7 +21,7 @@ img {
     transform: translateY(0);
 }
  .certificado{
-    margin: 0 0 15px 290px;
+    margin: 0 0 15px 240px;
     max-width: 100%;
 }
 .menu-item.active a {
@@ -78,12 +78,12 @@ img {
       /*align-items: center; */ /* Alinea verticalmente */
       /*justify-content: center;
       padding: 120px 0 0;*/
-      gap: 120px; /*para separar el texto del circulo con la imagen*/
+      /*gap: 20px;*/ /*para separar el texto del circulo con la imagen*/
       /*flex-wrap: wrap;*/ /* Evita desbordamientos en pantallas más pequeñas */
      /* max-width: 100%;*/ /* Antes no tenía ancho definido, ahora ocupa el 90% */
-    padding: 40px;
+    padding: 80px 0 0 0;
     max-width: 100%;
-    margin: auto;
+   /* margin: auto;*/
     flex-direction: row-reverse;
     background-color: #26335D;
     }
@@ -126,8 +126,8 @@ img {
       display: flex;
       align-items: center;  /* Alinea verticalmente */
       justify-content: center;
-      padding: 120px 0 0;
-      gap: 120px; /*para separar el texto del circulo con la imagen*/
+      padding: 50px 0 0;
+      gap: 20px; /*para separar el texto del circulo con la imagen*/
       flex-wrap: wrap; /* Evita desbordamientos en pantallas más pequeñas */
       max-width: 100%; /* Antes no tenía ancho definido, ahora ocupa el 90% */
       flex-direction: row-reverse;
@@ -216,7 +216,7 @@ img {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;  
+      flex-shrink: 1;  
                       
     }
     .circle2 {
@@ -228,7 +228,7 @@ img {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;  
+      flex-shrink: 1;  
                       
     }
     .circle4 {
@@ -240,7 +240,7 @@ img {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;  
+      flex-shrink: 1; /*El elemento puede encogerse si es necesario. cuando es 0 evita que un elemento se reduzca cuando su contenedor no tiene suficiente espacio. */ 
                       
     }
     /* La imagen se ajusta al contenedor circular */
@@ -253,10 +253,10 @@ img {
     }
     .circle2 img {
       width: 100%;    
-      height: 129%;   
+      height: 139%;   
       object-fit: contain;    
       position: relative;   
-      top: -73px; /* Ajusta este valor según lo necesites */
+      top: -29px; /* Ajusta este valor según lo necesites */
       transform: translateX(68px);
     }
     .circle4 img {
@@ -264,7 +264,7 @@ img {
       height: 130%;   
       object-fit: contain;    
       position: relative;   
-      top: -25px; /* Ajusta este valor según lo necesites */
+      top: -75px; /* Ajusta este valor según lo necesites */
     }
     .info {
     flex: 1;
@@ -291,7 +291,7 @@ img {
     line-height: 1.5;
     }
     .info2 h1,.info2 h2, .info2 p {
-    margin: 0 170px 15px; 
+    margin: 0 90px 15px; 
     text-align: left;
     color: #282977;
     max-width: 100%; /*650px */
