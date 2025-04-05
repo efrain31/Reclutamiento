@@ -5,17 +5,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Registro | ESCARH</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
+<?php if(session()->getFlashdata('success')): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?= session()->getFlashdata('success') ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+<?php endif; ?>
 <div class="registro">
         <div class="row container-custom">
             <div class="col-md-5 text-md-start text-center mb-4">
                 <h2 class="fw-bold"> Regístrate</h2>
                 <p>Y accede a las mejores oportunidades laborales.</p>
-                <?php if (session()->getFlashdata('success')): ?>
-                <p><?= session()->getFlashdata('success') ?></p>
-                <?php endif; ?>
             </div>
             <div class="col-md-7">
                 <div class="form-registro">

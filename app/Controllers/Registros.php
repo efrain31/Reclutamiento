@@ -16,6 +16,7 @@ class Registros extends Controller
     {
         //try{
         $registrosModel = new RegistrosModel();
+        date_default_timezone_set("America/Mexico_City");
         $data = [
             'nombre'     => $this->request->getPost('nombre'),
             'apellido'   => $this->request->getPost('apellido'),
@@ -36,6 +37,7 @@ class Registros extends Controller
     public function store2()
     {
         $registrosModel = new RegistrosModel();
+        date_default_timezone_set("America/Mexico_City");
         $data = [
             'nombre'      => $this->request->getPost('nombre'),
             'correo'      => $this->request->getPost('correo'),
@@ -44,20 +46,20 @@ class Registros extends Controller
             'municipio'   => $this->request->getPost('municipio'),
             'servicio'    => $this->request->getPost('servicio'),
             'adicional'   => $this->request->getPost('adicional'),
-            'fecha'       => date('Y-m-d H:i:s')
+            'fecha'       => date('Y-m-d  H:i:s')
         ];
        // print_r($data);exit;
        //dd($data);
         $registrosModel->insert($data);
         //print_r($id); exit;
         // Enviar correo
-       /* $email = \Config\Services::email();
-        $email->setFrom('lectoras@geovoy.com', 'escarh');
-        $email->setTo('brizeidarosales@geovoy.com'); // Cambia por el correo al que quieres enviarlo
-        $email->setSubject('Nueva Solicitud de Reclutamiento');
+        $email = \Config\Services::email();
+        $email->setFrom('desarrollo@geovoy.com', 'Escarh');
+        $email->setTo('brizeidarosales@geovoy.com, raquel_magana@escarh.com'); //Cambia por el correo al que quieres enviarlo
+        $email->setSubject('Nueva Solicitud de Servicios');
         // Construir el mensaje en HTML
         $mensaje = "
-            <h2>Solicitud de Reclutamiento</h2>
+            <h2>Solicitud de Servicios</h2>
             <p><strong>Nombre:</strong> {$data['nombre']}</p>
             <p><strong>Correo:</strong> {$data['correo']}</p>
             <p><strong>Teléfono:</strong> {$data['celular']}</p>
@@ -70,16 +72,15 @@ class Registros extends Controller
         $email->setMessage($mensaje);
         $email->setMailType('html');
 
-      if (!$email->send()) {
-        echo $email->printDebugger(['headers']);
-       exit;*/
-        return redirect()->to('/inicio')->with('success', 'Registro exitoso');
-        //return redirect()->to('/inicio')->with('success', 'Registro exitoso y correo enviado');
-        //} else {
+      if ($email->send()) {
+        //echo $email->printDebugger(['headers']);
+       //exit;
+        return redirect()->to('/inicio')->with('success', 'Correo enviado');
+        } else {
             //echo "Correo enviado con éxito";
            // exit;
-          //  return redirect()->to('/inicio')->with('error', 'Registro exitoso, pero el correo no se envió');
-        //}
+        return redirect()->to('/inicio')->with('error', 'Registro exitoso, pero el correo no se envió');
+        }
     }
     public function login()
     {

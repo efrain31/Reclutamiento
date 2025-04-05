@@ -21,7 +21,7 @@ img {
     transform: translateY(0);
 }
  .certificado{
-    margin: 0 0 15px 240px;
+    margin: 0 0 15px 220px;
     max-width: 100%;
 }
 .menu-item.active a {
@@ -413,6 +413,11 @@ img {
             padding: 30px;
             /*border-radius: 10px;*/
         }
+    .alert-dismissible {
+    /* padding-right: 3rem; */
+    text-align: center;
+    font-weight: bold;
+}
     /* Responsividad */
     @media (max-width: 768px) {
 
