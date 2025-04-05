@@ -5,10 +5,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Inicio | ESCARH</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
+
 <body>
+<?php if(session()->getFlashdata('success')): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?= session()->getFlashdata('success') ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+<?php endif; ?>
+
+<?php if(session()->getFlashdata('error')): ?>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <?= session()->getFlashdata('error') ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+<?php endif; ?>
 
      <!-- Primera seccion -->
   <div class="inicio-container"> <!-- Sección izquierda: círculo con imagen --> 
@@ -180,9 +196,6 @@
             <div class="col-md-5 text-md-start text-center mb-4">
                 <h2 class="fw-bold">¡Comienza ya tu reclutamiento!</h2>
                 <p>Si desea acceder a nuestros servicios de reclutamiento, complete el formulario a continuación para dar inicio a su proyecto. En ESCARH, nos especializamos en la búsqueda y selección de talento.</p>
-                <?php if (session()->getFlashdata('success')): ?>
-                <p><?= session()->getFlashdata('success') ?></p>
-                <?php endif; ?>
             </div>
             <div class="col-md-7">
                 <div class="form-container">
@@ -232,8 +245,7 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
 document.addEventListener("DOMContentLoaded", function () {
     const menuNosotros = document.querySelector("a[href='<?= base_url('/nosotros') ?>']");
