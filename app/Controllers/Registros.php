@@ -29,7 +29,7 @@ class Registros extends Controller
         //print_r($data);exit;
         $registrosModel->insert($data);
         //print_r($id); exit;
-    return redirect()->to('/inicio')->with('success', 'Registro exitoso');
+    return redirect()->to('inicio')->with('success', 'Registro exitoso');
     //} catch (\Exception $e) {
         //return redirect()->to('/inicio')->with('error', $e->getMessage());
     //}
@@ -50,7 +50,6 @@ class Registros extends Controller
     if (!$responseKeys["success"]) {
         return redirect()->back()->with('error', 'Fallo la verificación de reCAPTCHA');
     }
-
         $registrosModel = new RegistrosModel();
         date_default_timezone_set("America/Mexico_City");
         $data = [
@@ -70,7 +69,7 @@ class Registros extends Controller
         // Enviar correo
         $email = \Config\Services::email();
         $email->setFrom('desarrollo@geovoy.com', 'Escarh');
-        $email->setTo('brizeidarosales@geovoy.com, raquel_magana@escarh.com'); //Cambia por el correo al que quieres enviarlo
+        $email->setTo('brizeidarosales@geovoy.com'); //Cambia por el correo al que quieres enviarlo
         $email->setSubject('Nueva Solicitud de Servicios');
         // Construir el mensaje en HTML
         $mensaje = "
@@ -90,11 +89,11 @@ class Registros extends Controller
       if ($email->send()) {
         //echo $email->printDebugger(['headers']);
        //exit;
-        return redirect()->to('/inicio')->with('success', 'Correo enviado');
+        return redirect()->to('inicio')->with('success','Correo enviado');
         } else {
             //echo $email->printDebugger(['headers']);
             //exit;
-        return redirect()->to('/inicio')->with('error', 'Registro exitoso, pero el correo no se envió');
+        return redirect()->to('inicio')->with('error','Registro exitoso, pero el correo no se envió');
         }
     }
     public function login()

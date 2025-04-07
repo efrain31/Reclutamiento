@@ -21,7 +21,7 @@ img {
     transform: translateY(0);
 }
  .certificado{
-    margin: 0 0 15px 220px;
+    margin: 0 0 15px 100px;
     max-width: 100%;
 }
 .menu-item.active a {
@@ -159,7 +159,7 @@ img {
     flex-wrap: wrap;
     }
     .servicio {
-    width: 350px;
+    width: 650px;
     background: white;
     padding: 20px;
     text-align: center;
@@ -274,7 +274,7 @@ img {
    /* max-width: 600px;*/
     }
     .certifica {
-    width: 30%;
+    width: 22%;
     padding: 10px 0 0;
     margin-bottom: 30px;
     }
@@ -475,7 +475,7 @@ img {
     margin-bottom: 30px;
     }
     .certificado{
-    margin: 0 0 15px 0;
+    margin: 0;
     max-width: 100%;
 }
     .circle2 img {
