@@ -36,6 +36,21 @@ class Registros extends Controller
     }
     public function store2()
     {
+        $recaptcha = \Config\Services::request()->getPost('g-recaptcha-response');
+
+    if (!$recaptcha) {
+        return redirect()->back()->with('error', 'Por favor verifica el reCAPTCHA');
+    }
+
+    $secret = '6LfCDw0rAAAAAJl-v_zqWTmmBQaPBFTRZsMChr1_';
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$recaptcha}");
+    $responseKeys = json_decode($response, true);
+    //print_r($responseKeys);
+    //exit;
+    if (!$responseKeys["success"]) {
+        return redirect()->back()->with('error', 'Fallo la verificación de reCAPTCHA');
+    }
+
         $registrosModel = new RegistrosModel();
         date_default_timezone_set("America/Mexico_City");
         $data = [
@@ -77,8 +92,8 @@ class Registros extends Controller
        //exit;
         return redirect()->to('/inicio')->with('success', 'Correo enviado');
         } else {
-            //echo "Correo enviado con éxito";
-           // exit;
+            //echo $email->printDebugger(['headers']);
+            //exit;
         return redirect()->to('/inicio')->with('error', 'Registro exitoso, pero el correo no se envió');
         }
     }
