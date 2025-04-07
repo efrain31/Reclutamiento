@@ -39,10 +39,12 @@
     </div>
     </div>
     <div class= "version">
-    &copy;<script>document.write(new Date().getFullYear())</script> Escarh <span class="d-none d-sm-inline-block"> - v.1.0.6 </span> 
+    &copy;<span id="anio"></span> Escarh <span class="d-none d-sm-inline-block"> - v.1.0.6 </span>
    </div>
 </footer>
-
+<script>
+  document.getElementById("anio").textContent = new Date().getFullYear();
+</script>
 <style {csp-style-nonce}>
      * {
             transition: background-color 300ms ease, color 300ms ease;
