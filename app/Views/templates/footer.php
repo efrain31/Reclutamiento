@@ -39,7 +39,7 @@
     </div>
     </div>
     <div class= "version">
-    &copy;<span id="anio"></span> Escarh <span class="d-none d-sm-inline-block"> - v.1.0.6 </span>
+    &copy;<span id="anio"></span> Escarh <span class="d-none d-sm-inline-block"> - v.1.0.7 </span>
    </div>
 </footer>
 <script>

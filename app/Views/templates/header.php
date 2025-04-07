@@ -14,24 +14,24 @@
                 <button id="menuToggle">&#9776;</button>
             </li>
     
-            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/inicio') ? 'active' : '' ?>">
-                <a href="<?= base_url('/inicio') ?>">Inicio</a>
+            <li class="menu-item hidden <?= (uri_string() == 'inicio') ? 'active' : '' ?>">
+                <a href="<?= base_url('inicio') ?>" >Inicio</a>
             </li>
 
-            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/nosotros') ? 'active' : '' ?>">
-                <a href="<?= base_url('/nosotros') ?>" id="btnNosotros">Nosotros</a>
+            <li class="menu-item hidden <?= (uri_string() == 'nosotros') ? 'active' : '' ?>">
+                <a href="<?= base_url('nosotros') ?>" id="btnNosotros">Nosotros</a>
             </li>
 
-            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/bolsat') ? 'active' : '' ?>">
-                <a href="<?= base_url('/bolsat') ?>" id="btnBolsa">Bolsa de Empleo</a>
+            <li class="menu-item hidden <?= (uri_string() == 'bolsat') ? 'active' : '' ?>">
+                <a href="<?= base_url('bolsat') ?>" id="btnBolsa">Bolsa de Empleo</a>
             </li>
 
-            <li class="menu-item hidden <?= ($_SERVER['REQUEST_URI'] == '/registro') ? 'active' : '' ?>">
-                <a href="<?= base_url('/registro') ?>" class="button-item">Registrate</a>
+            <li class="menu-item hidden <?= (uri_string() == 'registro') ? 'active' : '' ?>">
+                <a href="<?= base_url('registro') ?>" class="button-item">Registrate</a>
             </li>
 
-            <li class="menu-item hidden">
-                <a href="#" class="button-item-bri">Iniciar Sesión</a>
+            <li class="menu-item hidden <?= (uri_string() == 'iniciar_session') ? 'active' : '' ?>">
+                <a href="<?= base_url('iniciar_session') ?>" class="button-item-bri">Iniciar Sesión</a>
             </li>
 
              </nav>  

@@ -89,7 +89,7 @@
                 de atracción de talento para encontrar al mejor candidato. La cotización se ajusta al volumen de vacantes,
                 y la factura se genera una vez cumplida la garantía de 15 o 21 días, según lo establecido en la cotización.
             </p>
-            <a href="<?= base_url('/cotizar') ?>" class="btn2">Cotizar</a>
+            <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
         </div>
 
         <div class="servicio">
@@ -101,7 +101,7 @@
                 Somos expertos en perfiles operativos, técnicos, administrativos, altos mandos y TI. Realizamos psicometrías,
                 verificaciones de referencias y ofrecemos garantía de 30 a 60 días según la posición.
             </p>
-            <a href="<?= base_url('/cotizar') ?>" class="btn2">Cotizar</a>
+            <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
         </div>
     </div>
 
@@ -114,7 +114,7 @@
                 Contamos con personal administrativo, operativo, mandos medios y gerenciales, asegurando siempre 
                 el mejor perfil para tu empresa.
             </p>
-            <a href="<?= base_url('/cotizar') ?>" class="btn2">Cotizar</a>
+            <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
         </div>
 
         <div class="servicio">
@@ -126,7 +126,7 @@
                 registros patronales y antecedentes en procesos legales, garantizando así una contratación
                 segura y confiable.
             </p>
-            <a href="<?= base_url('/cotizar') ?>" class="btn2">Cotizar</a>
+            <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
         </div>
     </div>
 
@@ -140,7 +140,7 @@
                 en zonas especifícas y volanteo para maximizar el impacto de tu mensaje y llegar a tu 
                 audencia ideal.
             </p>
-            <a href="<?= base_url('/cotizar') ?>" class="btn2">Cotizar</a>
+            <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
         </div>
      </div>
 </div>
@@ -252,7 +252,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const menuNosotros = document.querySelector("a[href='<?= base_url('/nosotros') ?>']");
+    const menuNosotros = document.querySelector("a[href='<?= base_url('nosotros') ?>']");
     const inicioContainer2 = document.querySelector(".inicio-container2");
 
     menuNosotros.addEventListener("click", function (event) {
@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
         inicioContainer2.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
     });
 
-    const menuBolsa = document.querySelector("a[href='<?= base_url('/bolsat') ?>']");
+    const menuBolsa = document.querySelector("a[href='<?= base_url('bolsat') ?>']");
     const bolsaContainer = document.querySelector(".inicio-container3");
 
     menuBolsa.addEventListener("click", function (event) {
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bolsaContainer.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
     });
 
-    const menuInicio = document.querySelector("a[href='<?= base_url('/inicio') ?>']");
+    const menuInicio = document.querySelector("a[href='<?= base_url('inicio') ?>']");
     const inicioContainer = document.querySelector(".inicio-container");
 
     menuInicio.addEventListener("click", function (event) {
