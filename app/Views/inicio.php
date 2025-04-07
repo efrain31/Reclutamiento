@@ -8,6 +8,7 @@
   <title>Inicio | ESCARH</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 
@@ -238,6 +239,9 @@
                         <div class="mb-3">
                             <label class="form-label">Información adicional</label>
                             <textarea class="form-control" rows="4" name="adicional" placeholder="Describe tu solicitud"></textarea>
+                        </div>
+                        <div class="mb-3">
+                        <div class="g-recaptcha" data-sitekey="6LfCDw0rAAAAAOEKUiHNLBByLAhQDj2bG-Q737Vb"></div>
                         </div>
                         <button type="submit" class="btn3">Enviar Solicitud</button> <!-- 'disabled' para que no funcione el boton-->
                     </form>

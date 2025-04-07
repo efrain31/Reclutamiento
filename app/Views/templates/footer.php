@@ -39,7 +39,7 @@
     </div>
     </div>
     <div class= "version">
-    &copy;<script>document.write(new Date().getFullYear())</script> Escarh <span class="d-none d-sm-inline-block"> - v.1.0.5 </span> 
+    &copy;<script>document.write(new Date().getFullYear())</script> Escarh <span class="d-none d-sm-inline-block"> - v.1.0.6 </span> 
    </div>
 </footer>
 
