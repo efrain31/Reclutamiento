@@ -95,6 +95,13 @@
             background-color: rgb(255, 255, 255);
             padding: .6rem 0 0;
         }
+        header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* asegúrate de que esté por encima del resto */
+   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* sombra opcional para destacar */
+}
     .menu {
             padding: .4rem 2rem;
         }

@@ -310,6 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <style  {csp-style-nonce}>
 body {
     background-color: #BDBDBD;
+    padding-top: 70px;
 }
 .form-select {
     background-color: white;

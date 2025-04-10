@@ -179,7 +179,7 @@ img {
     font-size: 1rem;
     color: #574F4A;
     margin-bottom: 20px;
-    text-align: left;
+    text-align: justify;
     }
     .btn2 {
     display: inline-block;
@@ -278,9 +278,15 @@ img {
     padding: 10px 0 0;
     margin-bottom: 30px;
     }
-    .info h1, .info p {
+    .info h1 {
     margin: 0 70px 15px; 
     text-align: left;
+    color: #282977;
+    max-width: 100%; /*650px */
+    }
+    .info p {
+    margin: 0 70px 15px; 
+    text-align: justify;
     color: #282977;
     max-width: 100%; /*650px */
     }
@@ -290,9 +296,15 @@ img {
     .info p {
     line-height: 1.5;
     }
-    .info2 h1,.info2 h2, .info2 p {
+    .info2 h1,.info2 h2 {
     margin: 0 90px 15px; 
     text-align: left;
+    color: #282977;
+    max-width: 100%; /*650px */
+    }
+    .info2 p {
+    margin: 0 90px 15px; 
+    text-align: justify;
     color: #282977;
     max-width: 100%; /*650px */
     }
@@ -345,7 +357,7 @@ img {
         color:rgb(206, 207, 208);
         font-size: 16px;
         margin-top: 5px;
-        text-align: left;
+        text-align: justify;
     }
     .info2 h1 {
     font-size: 2.9rem;
@@ -417,6 +429,9 @@ img {
     /* padding-right: 3rem; */
     text-align: center;
     font-weight: bold;
+}
+.container p {
+    text-align: justify;
 }
     /* Responsividad */
     @media (max-width: 768px) {
