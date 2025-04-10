@@ -153,7 +153,7 @@
         /* Asegurar que el contenedor del logo tenga un ancho flexible */
     .logo {
             position: relative;
-            top: -15px; /* Mueve el logo hacia arriba */
+            top: -19px; /* Mueve el logo hacia arriba */
             left: 10px; /* Opcional: Mueve el logo un poco a la izquierda */
         max-width: 180px; /* Define un tamaño máximo */
         width: 100%; /* Permite que se reduzca en pantallas pequeñas */
