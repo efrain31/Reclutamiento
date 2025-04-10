@@ -339,20 +339,17 @@ img {
         align-items: flex-start;
        /* background-color: rgba(255, 255, 255, 0.1);
        border-radius: 8px;*/
-        padding: 15px;
-       
+        padding: 15px;   
     }
     .faq-icon {
         /*color: #5DADE2;
         font-size: 24px;*/
         margin-right: 15px;
     }
-
     .faq-item strong {
         color:rgb(255, 255, 255);
         font-size: 18px;
     }
-
     .faq-item p {
         color:rgb(206, 207, 208);
         font-size: 16px;
@@ -415,7 +412,8 @@ img {
     margin-right: auto;
     margin-left: auto;
     max-width: 1320px;
-        background-color:rgb(255, 255, 255);
+    background-color:rgb(255, 255, 255);
+    padding: 65px 0px;
       }
       .registro h2, .registro p{
         color: #282977;
@@ -437,7 +435,7 @@ img {
     @media (max-width: 768px) {
 
    .info2 h2, .info h1 {
-    text-align: left;
+    text-align: center;
     color: #282977;
     max-width: 100%; /*650px */
     font-size: 1.4rem;
@@ -453,7 +451,7 @@ img {
     margin-bottom: 20px;
     }
     .info2 p, .info p {
-    text-align: left;
+    text-align: justify;
     color: #282977;
     max-width: 100%;
     font-size: 1rem;
@@ -477,12 +475,17 @@ img {
     margin-bottom: 20px; 
     }
     .faq-container p {
-    text-align: left;
+    text-align: justify;
     color:rgb(206, 207, 208);
     max-width: 100%; 
     font-size: 16px;
     margin: 0;
     margin-bottom: 20px;
+    }
+    .faq-icon {
+        /*color: #5DADE2;
+        font-size: 24px;*/
+        margin-right: 10px;
     }
     .certifica {
     width: 50%;
@@ -519,6 +522,7 @@ img {
         flex-direction: column;
         gap: 40px; /* Reduce la separación */
         /*padding: 50px 20px; /* Ajusta el padding para evitar desbordamientos */
+        align-items: center;
     }
     
     /*.politicas-container ul {
@@ -534,11 +538,25 @@ img {
         gap: 40px;
         /*padding: 50px 20px;*/
     }
-    .inicio-container, .inicio-container2, .inicio-container3, 
-     .container, .registro {
+    .container, .registro {
     width: 100%;
     max-width: 100%;
-    padding: 20px;
+    padding: 36px 20px;
+}
+    .inicio-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 105px 20px;
+}
+    .inicio-container2 {
+    width: 100%;
+    max-width: 100%;
+    padding: 80px 20px;
+}
+    .inicio-container3 {
+    width: 100%;
+    max-width: 100%;
+    padding: 73px 20px;
 }
    .inicio-container3 h2 {
     font-size: 2rem;
@@ -550,7 +568,7 @@ img {
 }
    .inicio-container3 p {
     font-size: 1rem;
-    text-align: left;
+    text-align: justify;
     color: #282977;
     max-width: 100%; /*650px */
     margin: 0;
@@ -589,7 +607,7 @@ img {
     text-align: center;
     min-width: 150px;
 }
-.container, .registro {
+    .container, .registro {
         flex-direction: column;
         align-items: center;
     }
@@ -599,10 +617,11 @@ img {
         text-align: center;
         margin-bottom: 20px;
     }
-.registro {
+    .registro {
     max-width: 720px;
+    padding: 95px 0px;
 }
-.faq-grid {
+     .faq-grid {
             grid-template-columns: 1fr;
         }
 }

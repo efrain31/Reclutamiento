@@ -30,8 +30,8 @@
                 <a href="<?= base_url('registro') ?>" class="button-item">Registrate</a>
             </li>
 
-            <li class="menu-item hidden <?= (uri_string() == 'iniciar_session') ? 'active' : '' ?>">
-                <a href="<?= base_url('iniciar_session') ?>" class="button-item-bri">Iniciar Sesión</a>
+            <li class="menu-item hidden "><!--<.?= (uri_string() == 'iniciar_session') ? 'active' : '' ?>-->
+                <a href="#" class="button-item-bri">Iniciar Sesión</a> <!--<.?= base_url('iniciar_session') ?>-->
             </li>
 
              </nav>  
@@ -44,11 +44,21 @@
     document.getElementById("menuToggle").addEventListener('click', toggleMenu);
     function toggleMenu() {
         var menuItems = document.getElementsByClassName('menu-item');
-        for (var i = 0; i < menuItems.length; i++) {
-            var menuItem = menuItems[i];
-            menuItem.classList.toggle("hidden");
+        for (let i = 0; i < menuItems.length; i++) {
+            menuItems[i].classList.toggle("hidden");
         }
     }
+    const links = document.querySelectorAll('.menu-item a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            const menuItems = document.getElementsByClassName('menu-item');
+            for (let i = 0; i < menuItems.length; i++) {
+                if (!menuItems[i].classList.contains('hidden')) {
+                    menuItems[i].classList.add("hidden");
+                }
+            }
+        });
+    });
 </script>
 
 <style {csp-style-nonce}>
@@ -245,6 +255,7 @@
             stroke-width: 32px;
         }
     @media (max-width: 768px) {
+       
     /* Estilo de los botones de "Regístrate" y "Iniciar Sesión" */
      .button-item {
     background-color: #282977 !important;
