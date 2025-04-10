@@ -140,7 +140,7 @@ img {
       background-color: #574F4A;*/
       color: #282977;
       background-color:rgb(255, 255, 255);
-      padding: 55px 0 0 0;
+      padding: 62px 0 0 0;
     }
     .inicio-container3 h2 {
     font-size: 2.5rem;
@@ -297,7 +297,7 @@ img {
     line-height: 1.5;
     }
     .info2 h1,.info2 h2 {
-    margin: 0 90px 15px; 
+    margin: 15px 90px 15px; 
     text-align: left;
     color: #282977;
     max-width: 100%; /*650px */
