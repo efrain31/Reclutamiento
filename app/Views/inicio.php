@@ -6,30 +6,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Inicio | ESCARH</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-
 <body>
-<?php if(session()->getFlashdata('success')): ?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <?= session()->getFlashdata('success') ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-    </div>
-<?php endif; ?>
-
-<?php if(session()->getFlashdata('error')): ?>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <?= session()->getFlashdata('error') ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-    </div>
-<?php endif; ?>
-
      <!-- Primera seccion -->
-  <div class="inicio-container"> <!-- Sección izquierda: círculo con imagen --> 
-    <div class="circle">
+<div class="inicio-container"> <!-- Sección izquierda: círculo con imagen --> 
+  <div class="circle">
       <img src="<?= base_url('img/3.png') ?>" alt="Imagen de la info" class="animate-img">
     </div>     
     <div class="info"> <!-- Sección derecha: información -->
@@ -38,20 +23,20 @@
         Somos la agencia de reclutamiento más rápida y eficiente, con más de 29 años de experiencia conectando empresas con el 
         mejor talento. Nuestro proceso está garantizado, asegurando candidatos calificados en menos de 72 horas.
       </p>
-      <div class="botones">
+    <div class="botones">
       <a href="#servicios" class="btnn">¿Buscas Trabajo?</a>
       <a href="#servicios" class="btn1">Quiero Contratar</a>
-     </div>
     </div>
   </div>
+</div>
 
 <!-- Cuadro de informacion-->
-  <div class="producto">
-    <h3>Más de 20,000 profesionales han encontrado empleo gracias a nuestros servicios...</h3>
-    </div>
+<div class="producto">
+   <h3>Más de 20,000 profesionales han encontrado empleo gracias a nuestros servicios...</h3>
+</div>
 
     <!-- Segunda seccion-->
-    <div id="nosotros" class="inicio-container2"> <!-- Sección derecha: círculo con imagen -->
+<div id="nosotros" class="inicio-container2"> <!-- Sección derecha: círculo con imagen -->
     <div class="circle2">
       <img src="<?= base_url('img/4.png') ?>" alt="Imagen de la prenda" class="animate-img">
     </div>  
@@ -69,19 +54,19 @@
       <h2>¡Además estamos certificados!</h2>
       <div class ="certificado">
       <img src="<?= base_url('img/6.png') ?>" alt="Imagen de certificado" class="certifica animate-img">
-      </div>
+    </div>
     </div>  
 </div>
 
 <!-- Tercera seccion-->
 <div id="bolsas" class="inicio-container3">   
-<h2>Nuestros Servicios</h2>
-<p> Deja que nos ocupemos de lo complicado y usa tu tiempo en lo que realmente importa.</p>
-<p><strong>Conoce nuestros servicios con alcance nacional.</strong></p>
+    <h2>Nuestros Servicios</h2>
+      <p> Deja que nos ocupemos de lo complicado y usa tu tiempo en lo que realmente importa.</p>
+      <p><strong>Conoce nuestros servicios con alcance nacional.</strong></p>
 
 <div class="servicios">
     <div class="servicio">
-    <img src="<?= base_url('img/reclutamiento.png') ?>" alt="Reclutamiento Masivo" class="animate-img">
+        <img src="<?= base_url('img/reclutamiento.png') ?>" alt="Reclutamiento Masivo" class="animate-img">
             <h3>Reclutamiento Masivo</h3>
             <p>
                 Garantizamos candidatos en 72 horas, utilizando estrategias diseñadas específicamente para cada perfil.
@@ -90,9 +75,9 @@
                 y la factura se genera una vez cumplida la garantía de 15 o 21 días, según lo establecido en la cotización.
             </p>
             <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
-        </div>
+    </div>
 
-        <div class="servicio">
+    <div class="servicio">
             <img src="<?= base_url('img/reclutamiento2.png') ?>" alt="Reclutamiento Especializado" class="animate-img">
             <h3>Reclutamiento Especializado</h3>
             <p>
@@ -102,12 +87,12 @@
                 verificaciones de referencias y ofrecemos garantía de 30 a 60 días según la posición.
             </p>
             <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
-        </div>
     </div>
+</div>
 
 <div class="servicios">
     <div class="servicio">
-    <img src="<?= base_url('img/psicometria.png') ?>" alt="Psicometria" class="animate-img">
+        <img src="<?= base_url('img/psicometria.png') ?>" alt="Psicometria" class="animate-img">
             <h3>Psicometrías</h3>
             <p>
                 Ofrecemos un amplio portafolio de opciones para cubrir todas tus necesidades de talento humano.
@@ -115,9 +100,9 @@
                 el mejor perfil para tu empresa.
             </p>
             <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
-        </div>
+    </div>
 
-        <div class="servicio">
+    <div class="servicio">
             <img src="<?= base_url('img/socioeconomicos.png') ?>" alt="Socioeconómicos" class="animate-img">
             <h3>Socioeconómicos</h3>
             <p>
@@ -127,13 +112,13 @@
                 segura y confiable.
             </p>
             <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
-        </div>
-    </div>
+     </div>
+</div>
 
     <div class="servicios">
-    <div class="servicio">
-    <img src="<?= base_url('img/perifoneo.png') ?>" alt="Perifoneo" class="animate-img">
-            <h3>Perifoneo</h3>
+        <div class="servicio">
+           <img src="<?= base_url('img/perifoneo.png') ?>" alt="Perifoneo" class="animate-img">
+              <h3>Perifoneo</h3>
             <p>
                 Nuestro servicio de perifoneo garantiza una comunicación efectiva y dirigida a los candidatos. Incluye la
                 creación de audios personalizados, diseño de volantes atractivos, recorridos estratégicos
@@ -142,113 +127,187 @@
             </p>
             <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
         </div>
-     </div>
+    </div>
 </div>
 
 <!-- Cuarta seccion-->
 <div class="politicas-container"> <!-- Sección derecha: círculo con imagen --> 
     <div class="circle4">
-      <img src="<?= base_url('img/5.png') ?>" alt="Imagen de la prenda" class="animate-img">
+       <img src="<?= base_url('img/5.png') ?>" alt="Imagen de la prenda" class="animate-img">
     </div>  
     <div class="faq-container"> <!-- Sección derecha: información -->
-    <!--<div class="linea"></div>-->
-    <h3>PREGUNTAS Y RESPUESTAS</h3>
-    <h1>Preguntas Frecuentes</h1>
+       <!--<div class="linea"></div>-->
+       <h3>PREGUNTAS Y RESPUESTAS</h3>
+       <h1>Preguntas Frecuentes</h1>
     <div class="faq-grid">
-        <div class="faq-item">
+    <div class="faq-item">
         <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
            <!-- <span class="faq-icon">●</span>-->
-            <div>
-                <strong>¿Cómo puedo postularme a una vacante?</strong><br>
-                <p>Puedes revisar nuestras ofertas de empleo en la sección de Bolsa de Trabajo y postularte directamente llenando el formulario o enviando tu CV a nuestro correo de contacto.</p>
-            </div>
-        </div>
-        <div class="faq-item">
+    <div>
+        <strong>¿Cómo puedo postularme a una vacante?</strong><br>
+        <p>Puedes revisar nuestras ofertas de empleo en la sección de Bolsa de Trabajo y postularte directamente llenando el formulario o enviando tu CV a nuestro correo de contacto.</p>
+    </div>
+    </div>
+    <div class="faq-item">
         <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
             <!--<span class="faq-icon">●</span>-->
-            <div>
-                <strong>¿En qué países opera ESCARH?</strong><br>
-                <p>Trabajamos con empresas en diferentes estados de la República Mexicana. Contáctanos para más detalles sobre nuestra cobertura.</p>
-            </div>
-        </div>
-        <div class="faq-item">
+    <div>
+        <strong>¿En qué países opera ESCARH?</strong><br>
+        <p>Trabajamos con empresas en diferentes estados de la República Mexicana. Contáctanos para más detalles sobre nuestra cobertura.</p>
+    </div>
+    </div>
+    <div class="faq-item">
         <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
         <!--<span class="faq-icon">●</span>-->
-            <div>
-                <strong>¿Cómo puedo contratar sus servicios?</strong><br>
-                <p>Para solicitar nuestros servicios, puedes ponerte en contacto con nosotros a través del formulario en nuestra página web, llamarnos o enviarnos un correo con tus necesidades específicas.</p>
-            </div>
-        </div>
-        <div class="faq-item">
+    <div>
+        <strong>¿Cómo puedo contratar sus servicios?</strong><br>
+            <p>Para solicitar nuestros servicios, puedes ponerte en contacto con nosotros a través del formulario en nuestra página web, llamarnos o enviarnos un correo con tus necesidades específicas.</p>
+    </div>
+    </div>
+    <div class="faq-item">
         <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
         <!--<span class="faq-icon">●</span>-->
-            <div>
-                <strong>¿ESCARH solo trabaja con empresas o también con candidatos?</strong><br>
-                <p>Brindamos apoyo tanto a empresas que buscan el mejor talento como a candidatos que desean encontrar oportunidades laborales acordes a su perfil y experiencia.</p>
-            </div>
-        </div>
+    <div>
+        <strong>¿ESCARH solo trabaja con empresas o también con candidatos?</strong><br>
+            <p>Brindamos apoyo tanto a empresas que buscan el mejor talento como a candidatos que desean encontrar oportunidades laborales acordes a su perfil y experiencia.</p>
+    </div>
+    </div>
     </div>
     </div>
 </div>
 
-<!-- Quinta seccion-->
+<!-- Quinta sección -->
 <div class="container">
-        <div class="row container-custom">
-            <div class="col-md-5 text-md-start text-center mb-4">
-                <h2 class="fw-bold">¡Comienza ya tu reclutamiento!</h2>
-                <p>Si desea acceder a nuestros servicios de reclutamiento, complete el formulario a continuación para dar inicio a su proyecto. En ESCARH, nos especializamos en la búsqueda y selección de talento.</p>
-            </div>
-            <div class="col-md-7">
-                <div class="form-container">
-                    <form action="/inicio/store" method="POST">
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" placeholder="Escriba nombre completo" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Correo</label>
-                                <input type="email" class="form-control" name="correo" placeholder="Ej. contacto@empresa.com" required>
-                            </div>
+    <div class="row container-custom">
+        <div class="col-md-5 text-md-start text-center mb-4">
+            <h2 class="fw-bold">¡Comienza ya tu reclutamiento!</h2>
+            <p>Si desea acceder a nuestros servicios de reclutamiento, complete el formulario a continuación para dar inicio a su proyecto. En ESCARH, nos especializamos en la búsqueda y selección de talento.</p>
+        </div>
+
+        <div class="col-md-7">
+            <div class="form-container" id="formulario">
+                <form action="/inicio/store" method="POST">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Nombre<span style="color:red">*</span></label>
+                            <input type="text" class="form-control" name="nombre" placeholder="Escriba nombre completo" value="<?= old('nombre') ?>" required>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Empresa</label>
-                                <input type="text" class="form-control" name="empresa" placeholder="Ej. empresa" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Municipio/Delegación</label>
-                                <input type="text" class="form-control" name="municipio" placeholder="Escribe Municipio/Delegación" required>
-                            </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Correo<span style="color:red">*</span></label>
+                            <input type="email" class="form-control" name="correo" placeholder="Ej. contacto@empresa.com" value="<?= old('correo') ?>" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Teléfono</label>
-                            <input type="tel" class="form-control" name="celular" placeholder="10 dígitos" required>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Empresa<span style="color:red">*</span></label>
+                            <input type="text" class="form-control" name="empresa" placeholder="Ej. empresa" value="<?= old('empresa') ?>" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Servicios</label>
-                            <select class="form-select" name="servicio">
-                                <option>Selecciona</option>
-                                <option>Reclutamiento Masivo</option>
-                                <option>Reclutamiento Especializado (Head Hunting)</option>
-                                <option>Psicometrías</option>
-                                <option>Socioeconómicos</option>
-                                <option>Perifoneo</option>
-                            </select>
+                        <div class="col-md-6">
+                            <label class="form-label">Municipio/Delegación<span style="color:red">*</span></label>
+                            <input type="text" class="form-control" name="municipio" placeholder="Escribe Municipio/Delegación" value="<?= old('municipio') ?>" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Información adicional</label>
-                            <textarea class="form-control" rows="4" name="adicional" placeholder="Describe tu solicitud"></textarea>
-                        </div>
-                        <div class="mb-3">
-                        <div class="g-recaptcha" data-sitekey="6LfCDw0rAAAAAOEKUiHNLBByLAhQDj2bG-Q737Vb"></div>
-                        </div>
-                        <button type="submit" class="btn3">Enviar Solicitud</button> <!-- 'disabled' para que no funcione el boton-->
-                    </form>
-                </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Teléfono<span style="color:red">*</span></label>
+                        <input type="tel" class="form-control" name="celular" placeholder="10 dígitos" value="<?= old('celular') ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Servicios<span style="color:red">*</span></label>
+                        <select class="form-select" name="servicio" required>
+                            <option value="Selecciona" <?= old('servicio') == 'Selecciona' ? 'selected' : '' ?> disabled>Selecciona</option>
+                            <option <?= old('servicio') == 'Reclutamiento Masivo' ? 'selected' : '' ?>>Reclutamiento Masivo</option>
+                            <option <?= old('servicio') == 'Reclutamiento Especializado (Head Hunting)' ? 'selected' : '' ?>>Reclutamiento Especializado (Head Hunting)</option>
+                            <option <?= old('servicio') == 'Psicometrías' ? 'selected' : '' ?>>Psicometrías</option>
+                            <option <?= old('servicio') == 'Socioeconómicos' ? 'selected' : '' ?>>Socioeconómicos</option>
+                            <option <?= old('servicio') == 'Perifoneo' ? 'selected' : '' ?>>Perifoneo</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Información adicional</label>
+                        <textarea class="form-control" rows="4" name="adicional" placeholder="Describe tu solicitud"><?= old('adicional') ?></textarea>
+                    </div>
+
+                    <div class="g-recaptcha mb-3" data-sitekey="6Leo_BQrAAAAAMQKs5ukj9Fa_4AUYXJF0OBltts7"></div>
+
+                    <button type="submit" class="btn3">Enviar Solicitud</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
+<!-- Script para hacer scroll automático si hay mensaje -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function (e) {
+            const celularInput = form.querySelector('input[name="celular"]');
+            const celular = celularInput.value.trim();
+            const phoneRegex = /^[0-9]{10}$/;
+
+            if (!phoneRegex.test(celular)) {
+                e.preventDefault();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Teléfono inválido',
+                    text: 'El número debe tener exactamente 10 dígitos numéricos.',
+                    confirmButtonText: 'Entendido',
+                    confirmButtonColor: '#d33'
+                });
+                celularInput.focus();
+                return false;
+            }
+            // Mostrar loader
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Enviando...`;
+        });
+
+        // Scroll automático window.location.href.includes('#formulario')
+        /*if (window.location.hash === "#formulario") {
+            const el = document.getElementById('formulario');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }*/
+        
+        <?php if (session()->getFlashdata('success')): ?>
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: '<?= session()->getFlashdata('success') ?>',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Aceptar'
+            }).then(() => {
+                // Redirigir al formulario si hace falta
+                window.location.hash = 'inicio';
+            });
+        <?php elseif (session()->getFlashdata('error')): ?>
+            Swal.fire({
+                icon: 'error',
+                title: '¡Error!',
+                text: '<?= session()->getFlashdata('error') ?>',
+                confirmButtonColor: '#d33',
+                confirmButtonText: 'Intentar de nuevo'
+            }).then(() => {
+               // window.location.hash = '#formulario';
+                document.getElementById('formulario').scrollIntoView({ behavior: 'smooth' });
+            });
+        <?php elseif (session()->getFlashdata('errors')): ?>
+            Swal.fire({
+                icon: 'warning',
+                title: 'Hay errores en el formulario',
+                html: `<ul style="text-align: left;"><?php foreach (session()->getFlashdata('errors') as $e): ?><li><?= esc($e) ?></li><?php endforeach; ?></ul>`,
+                confirmButtonColor: '#f0ad4e',
+                confirmButtonText: 'Corregir'
+            }).then(() => {
+               // window.location.hash = '#formulario';
+                //document.getElementById('formulario').scrollIntoView({ behavior: 'smooth' });
+                const el = document.getElementById('formulario');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            });
+        <?php endif; ?>
+    });
+</script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
 document.addEventListener("DOMContentLoaded", function () {

@@ -39,7 +39,7 @@
     </div>
     </div>
     <div class= "version">
-    &copy;<span id="anio"></span> Escarh <span class="d-none d-sm-inline-block"> - v.1.0.10 </span>
+    &copy; Desarrollo GEOVOY <span id="anio"></span> <span class="d-none d-sm-inline-block"> - V.1.0.10 </span>
    </div>
 </footer>
 <script>
@@ -55,7 +55,7 @@
         }
         .version {
             color: white;
-            font-size: 10px;
+            font-size: 12px;
         }
         section {
             margin: 0 auto;

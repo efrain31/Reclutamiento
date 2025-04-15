@@ -1,4 +1,4 @@
-<style  {csp-style-nonce}>
+<style  > /*nonce="</?= $cspNonce ?>"*/
      body, html {
     width: 100%;
     margin: 0;
@@ -402,6 +402,10 @@ img {
 }
 .btnn, .btn3{
     background-color: #26335D;
+}
+.btn3:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 .registro {
     --bs-gutter-x: 1.5rem;

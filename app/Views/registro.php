@@ -7,14 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Registro | ESCARH</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-<?php if(session()->getFlashdata('success')): ?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <?= session()->getFlashdata('success') ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-    </div>
-<?php endif; ?>
 <div class="registro">
         <div class="row container-custom">
             <div class="col-md-5 text-md-start text-center mb-4">
@@ -95,6 +90,41 @@
                 });
             }
         }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    <?php if (session()->getFlashdata('success')): ?>
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: '<?= session()->getFlashdata('success') ?>',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Aceptar'
+            }).then(() => {
+                // Redirigir al formulario si hace falta
+                window.location.hash = '#formulario';
+            });
+        <?php elseif (session()->getFlashdata('error')): ?>
+            Swal.fire({
+                icon: 'error',
+                title: '¡Error!',
+                text: '<?= session()->getFlashdata('error') ?>',
+                confirmButtonColor: '#d33',
+                confirmButtonText: 'Intentar de nuevo'
+            }).then(() => {
+                window.location.hash = '#formulario';
+            });
+        <?php elseif (session()->getFlashdata('errors')): ?>
+            Swal.fire({
+                icon: 'warning',
+                title: 'Hay errores en el registro',
+                html: `<ul style="text-align: left;"><?php foreach (session()->getFlashdata('errors') as $e): ?><li><?= esc($e) ?></li><?php endforeach; ?></ul>`,
+                confirmButtonColor: '#f0ad4e',
+                confirmButtonText: 'Corregir'
+            }).then(() => {
+                window.location.hash = '#formulario';
+            });
+        <?php endif; ?>
     });
     </script>
 </body>

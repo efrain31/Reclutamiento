@@ -25,15 +25,20 @@
             <li class="menu-item hidden <?= (uri_string() == 'bolsat') ? 'active' : '' ?>">
                 <a href="<?= base_url('bolsat') ?>" id="btnBolsa">Bolsa de Empleo</a>
             </li>
-
+            <?php if (!session()->get('isLoggedIn')): ?>  <!-- Mostrar si el usuario NO ha iniciado sesión -->
             <li class="menu-item hidden <?= (uri_string() == 'registro') ? 'active' : '' ?>">
                 <a href="<?= base_url('registro') ?>" class="button-item">Registrate</a>
             </li>
 
-            <li class="menu-item hidden "><!--<.?= (uri_string() == 'iniciar_session') ? 'active' : '' ?>-->
-                <a href="#" class="button-item-bri">Iniciar Sesión</a> <!--<.?= base_url('iniciar_session') ?>-->
+            <li class="menu-item hidden <?= (uri_string() == 'iniciar_session') ? 'active' : '' ?>">
+                <a href="<?= base_url('iniciar_session') ?>" class="button-item-bri">Iniciar Sesión</a>
             </li>
-
+            <?php else: ?>
+                <!-- Mostrar si el usuario SÍ ha iniciado sesión -->
+              <li class="menu-item hidden">
+                <a href="<?= base_url('logout') ?>" class="button-item-bri">Cerrar Sesión</a>
+              </li>
+            <?php endif; ?>
              </nav>  
             </div>
     </nav>

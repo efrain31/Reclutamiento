@@ -34,6 +34,7 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
+        'authGuard'     => \App\Filters\AuthGuard::class,
     ];
 
     /**
@@ -103,7 +104,9 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [ 'authGuard' => ['before' => ['dashboard']]]; /* se comento esta linea para agregar la nueva linea de filters*/
+    public array $filters = [ 
+        'authGuard' => ['before' => ['dashboard']]
+    ]; /* se comento esta linea para agregar la nueva linea de filters*/
 
     /*public $filters = [
         'authGuard' => ['before' => ['dashboard']]
