@@ -36,65 +36,115 @@ class Registros extends Controller
     }
     public function store2()
     {
-        $recaptcha = \Config\Services::request()->getPost('g-recaptcha-response');
+    // Definir reglas de validación
+    $validacionReglas = [
+        'nombre'     => 'required',
+        'correo'     => 'required|valid_email',
+        'celular'    => 'required|numeric|min_length[10]|max_length[10]',
+        'empresa'    => 'required',
+        'municipio'  => 'required',
+        'servicio'   => 'required|not_in_list[Selecciona]',
+    ];
 
-    if (!$recaptcha) {
-        return redirect()->back()->with('error', 'Por favor verifica el reCAPTCHA');
+    // Mensajes personalizados en español
+    $validacionMensajes = [
+        'nombre' => [
+            'required' => 'El campo nombre es obligatorio.',
+        ],
+        'correo' => [
+            'required'    => 'El campo correo es obligatorio.',
+            'valid_email' => 'El correo debe ser válido.',
+        ],
+        'celular' => [
+            'required'    => 'El campo teléfono es obligatorio.',
+            'numeric'     => 'El teléfono debe contener solo números.',
+            'min_length'  => 'El teléfono debe tener exactamente 10 dígitos.',
+            'max_length'  => 'El teléfono debe tener exactamente 10 dígitos.',
+        ],
+        'empresa' => [
+            'required' => 'El campo empresa es obligatorio.',
+        ],
+        'municipio' => [
+            'required' => 'El campo municipio es obligatorio.',
+        ],
+        'servicio' => [
+            'required'      => 'Selecciona un servicio.',
+            'not_in_list'   => 'Selecciona un servicio válido.',
+        ],
+    ];
+
+    if (! $this->validate($validacionReglas, $validacionMensajes)) {
+        return redirect()->back()
+                         ->withInput()
+                         ->with('errors', $this->validator->getErrors())
+                         ->with('error_anchor', true); // Anclar al formulario
     }
 
-    $secret = '6LfCDw0rAAAAAJl-v_zqWTmmBQaPBFTRZsMChr1_';
+        // Verificación del reCAPTCHA
+    $recaptcha = $this->request->getPost('g-recaptcha-response');
+    if (!$recaptcha) {
+        return redirect()->back()->withInput()->with('error', 'Por favor verifica el reCAPTCHA')->with('error_anchor', true);
+    }
+
+    $secret = '6Leo_BQrAAAAADwwbYZvkszk9JJGuzgu7QwrgUM2';
     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$recaptcha}");
     $responseKeys = json_decode($response, true);
-    //print_r($responseKeys);
-    //exit;
+
     if (!$responseKeys["success"]) {
-        return redirect()->back()->with('error', 'Fallo la verificación de reCAPTCHA');
+        return redirect()->back()->withInput()->with('error', 'Falló la verificación de reCAPTCHA')->with('error_anchor', true);
     }
-        $registrosModel = new RegistrosModel();
-        date_default_timezone_set("America/Mexico_City");
-        $data = [
-            'nombre'      => $this->request->getPost('nombre'),
-            'correo'      => $this->request->getPost('correo'),
-            'celular'     => $this->request->getPost('celular'),
-            'empresa'     => $this->request->getPost('empresa'),
-            'municipio'   => $this->request->getPost('municipio'),
-            'servicio'    => $this->request->getPost('servicio'),
-            'adicional'   => $this->request->getPost('adicional'),
-            'fecha'       => date('Y-m-d  H:i:s')
-        ];
-       // print_r($data);exit;
-       //dd($data);
-        $registrosModel->insert($data);
-        //print_r($id); exit;
-        // Enviar correo
-        $email = \Config\Services::email();
-        $email->setFrom('desarrollo@geovoy.com', 'Escarh');
-        $email->setTo('brizeidarosales@geovoy.com'); //Cambia por el correo al que quieres enviarlo
-        $email->setSubject('Nueva Solicitud de Servicios');
-        // Construir el mensaje en HTML
-        $mensaje = "
-            <h2>Solicitud de Servicios</h2>
-            <p><strong>Nombre:</strong> {$data['nombre']}</p>
-            <p><strong>Correo:</strong> {$data['correo']}</p>
-            <p><strong>Teléfono:</strong> {$data['celular']}</p>
-            <p><strong>Empresa:</strong> {$data['empresa']}</p>
-            <p><strong>Municipio:</strong> {$data['municipio']}</p>
-            <p><strong>Servicio:</strong> {$data['servicio']}</p>
-            <p><strong>Información Adicional:</strong> {$data['adicional']}</p>
-            <p><strong>Fecha:</strong> {$data['fecha']}</p>
-        ";
+
+    // Guardar los datos y enviar correo
+    $registrosModel = new RegistrosModel();
+    date_default_timezone_set("America/Mexico_City");
+
+    $data = [
+        'nombre'      => $this->request->getPost('nombre'),
+        'correo'      => $this->request->getPost('correo'),
+        'celular'     => $this->request->getPost('celular'),
+        'empresa'     => $this->request->getPost('empresa'),
+        'municipio'   => $this->request->getPost('municipio'),
+        'servicio'    => $this->request->getPost('servicio'),
+        'adicional'   => $this->request->getPost('adicional'),
+        'fecha'       => date('Y-m-d  H:i:s')
+    ];
+
+    $email = \Config\Services::email();
+    $email->setFrom('desarrollo@geovoy.com', 'Escarh');
+    $email->setTo('brizeidarosales@geovoy.com');
+    $email->setSubject('Nueva Solicitud de Servicios');
+
+    $mensaje = "
+    <div style='font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;'>
+        <h2 style='color: #004080; text-align: center;'>Solicitud de Servicios</h2>
+        <table style='width: 100%; border-collapse: collapse;'>
+            <tr style='background-color: #f0f8ff;'><td style='padding: 8px; font-weight: bold;'>Nombre:</td><td style='padding: 8px;'>{$data['nombre']}</td></tr>
+            <tr><td style='padding: 8px; font-weight: bold;'>Correo:</td><td style='padding: 8px;'>{$data['correo']}</td></tr>
+            <tr style='background-color: #f0f8ff;'><td style='padding: 8px; font-weight: bold;'>Teléfono:</td><td style='padding: 8px;'>{$data['celular']}</td></tr>
+            <tr><td style='padding: 8px; font-weight: bold;'>Empresa:</td><td style='padding: 8px;'>{$data['empresa']}</td></tr>
+            <tr style='background-color: #f0f8ff;'><td style='padding: 8px; font-weight: bold;'>Municipio:</td><td style='padding: 8px;'>{$data['municipio']}</td></tr>
+            <tr><td style='padding: 8px; font-weight: bold;'>Servicio:</td><td style='padding: 8px;'>{$data['servicio']}</td></tr>
+            <tr style='background-color: #f0f8ff;'><td style='padding: 8px; font-weight: bold;'>Información Adicional:</td><td style='padding: 8px;'>{$data['adicional']}</td></tr>
+            <tr><td style='padding: 8px; font-weight: bold;'>Fecha:</td><td style='padding: 8px;'>{$data['fecha']}</td></tr>
+        </table>
+        <p style='text-align: center; margin-top: 20px; font-size: 12px; color: #888;'>Este mensaje fue generado automáticamente por el sistema de contacto de Escarh.</p>
+    </div>";
+
+    try {
         $email->setMessage($mensaje);
         $email->setMailType('html');
 
-      if ($email->send()) {
-        //echo $email->printDebugger(['headers']);
-       //exit;
-        return redirect()->to('inicio')->with('success','Correo enviado');
+        if ($email->send()) {
+            $registrosModel->insert($data);
+            return redirect()->to('inicio')->with('success', 'Registro exitoso. El correo fue enviado correctamente.');
         } else {
-            //echo $email->printDebugger(['headers']);
-            //exit;
-        return redirect()->to('inicio')->with('error','Registro exitoso, pero el correo no se envió');
+            log_message('error', 'Error al enviar correo: ' . print_r($email->printDebugger(['headers']), true));
+            return redirect()->to('inicio')->with('error', 'No se pudo enviar el correo. El registro no se guardó.');
         }
+    } catch (\Exception $e) {
+        log_message('error', 'Excepción al enviar correo: ' . $e->getMessage());
+        return redirect()->to('inicio')->with('error', 'Ocurrió un error al enviar el correo. El registro no se guardó.'); //, '#formulario'
+    }
     }
     public function login()
     {
