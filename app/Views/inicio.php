@@ -272,7 +272,7 @@
         <?php if (session()->getFlashdata('success')): ?>
             Swal.fire({
                 icon: 'success',
-                title: '¡Éxito!',
+                title: '¡Correo enviado con éxito!',
                 text: '<?= session()->getFlashdata('success') ?>',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Aceptar'
