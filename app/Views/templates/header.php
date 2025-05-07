@@ -13,31 +13,37 @@
             <li class="menu-toggle">
                 <button id="menuToggle">&#9776;</button>
             </li>
-    
             <li class="menu-item hidden <?= (uri_string() == 'inicio') ? 'active' : '' ?>">
                 <a href="<?= base_url('inicio') ?>" >Inicio</a>
             </li>
-
             <li class="menu-item hidden <?= (uri_string() == 'nosotros') ? 'active' : '' ?>">
                 <a href="<?= base_url('nosotros') ?>" id="btnNosotros">Nosotros</a>
             </li>
-
-            <li class="menu-item hidden <?= (uri_string() == 'bolsat') ? 'active' : '' ?>">
-                <a href="<?= base_url('bolsat') ?>" id="btnBolsa">Bolsa de Empleo</a>
+            <li class="menu-item hidden <?= (uri_string() == 'bolsa_empleo') ? 'active' : '' ?>">
+                <a href="<?= base_url('bolsa_empleo') ?>" id="btnBolsa">Bolsa de Empleo</a>
             </li>
+
             <?php if (!session()->get('isLoggedIn')): ?>  <!-- Mostrar si el usuario NO ha iniciado sesión -->
             <li class="menu-item hidden <?= (uri_string() == 'registro') ? 'active' : '' ?>">
                 <a href="<?= base_url('registro') ?>" class="button-item">Registrate</a>
             </li>
-
             <li class="menu-item hidden <?= (uri_string() == 'iniciar_session') ? 'active' : '' ?>">
-                <a href="<?= base_url('iniciar_session') ?>" class="button-item-bri">Iniciar Sesión</a>
+                <a href="#" class="button-item-bri">Iniciar Sesión</a>
+            </li> <!--<.?= base_url('iniciar_session') ?>-->
+
+            <?php else: ?><!-- Mostrar si el usuario SÍ ha iniciado sesión -->
+
+            <li class="menu-item hidden">   <!-- Icono de usuario -->
+                <img src="<?= base_url('img/user-icon.png') ?>" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 10px;">
             </li>
-            <?php else: ?>
-                <!-- Mostrar si el usuario SÍ ha iniciado sesión -->
-              <li class="menu-item hidden">
-                <a href="<?= base_url('logout') ?>" class="button-item-bri">Cerrar Sesión</a>
-              </li>
+            <li class="menu-item hidden">
+                <a href="<?= base_url('perfil') ?>" class="button-item">Mi perfil</a>
+            </li>
+            <li class="menu-item hidden">
+                <a href="<?= base_url('logout') ?>" class="button-item-briz">
+                <img src="<?= base_url('img/logout1.gif') ?>" alt="Usuario" style="width: 32px; height: 32px;"> 
+                Cerrar Sesión</a>
+            </li>
             <?php endif; ?>
              </nav>  
             </div>
@@ -106,6 +112,20 @@
     .button-item-bri:focus {
     background-color:rgba(243, 141, 64, 0.93) !important;
     }
+    .button-item-briz {
+    background-color:rgba(238, 119, 28, 0) !important;
+    color: #282977 !important;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    /*font-weight: bold;*/
+    transition: background-color 0.3s ease;
+    font-size: 10px;
+     }
+    .button-item-briz:hover,
+    .button-item-briz:focus {
+    background-color:rgba(254, 254, 254, 0) !important;
+    }
     header {
             background-color: rgb(255, 255, 255);
             padding: .6rem 0 0;
@@ -152,7 +172,7 @@
             color: #282977; /* Color del texto */
             font-weight: bold; /* Resalta el texto */
             border-radius: 5px;
-            border: 1px solid #282977;;
+            /*border: 1px solid #282977;;*/
         }
     header .logo {
             float: left;

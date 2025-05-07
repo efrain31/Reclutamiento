@@ -96,13 +96,13 @@
     <?php if (session()->getFlashdata('success')): ?>
             Swal.fire({
                 icon: 'success',
-                title: '¡Éxito!',
+                title: '¡Registro exitoso!',
                 text: '<?= session()->getFlashdata('success') ?>',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Aceptar'
             }).then(() => {
                 // Redirigir al formulario si hace falta
-                window.location.hash = '#formulario';
+                window.location.hash = 'iniciar_sesion';
             });
         <?php elseif (session()->getFlashdata('error')): ?>
             Swal.fire({
@@ -112,7 +112,7 @@
                 confirmButtonColor: '#d33',
                 confirmButtonText: 'Intentar de nuevo'
             }).then(() => {
-                window.location.hash = '#formulario';
+                window.location.hash = 'registro';
             });
         <?php elseif (session()->getFlashdata('errors')): ?>
             Swal.fire({

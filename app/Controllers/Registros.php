@@ -14,7 +14,6 @@ class Registros extends Controller
 
     public function store()
     {
-        //try{
         $registrosModel = new RegistrosModel();
         date_default_timezone_set("America/Mexico_City");
         $data = [
@@ -30,9 +29,6 @@ class Registros extends Controller
         $registrosModel->insert($data);
         //print_r($id); exit;
     return redirect()->to('inicio')->with('success', 'Registro exitoso');
-    //} catch (\Exception $e) {
-        //return redirect()->to('/inicio')->with('error', $e->getMessage());
-    //}
     }
     public function store2()
     {
@@ -111,7 +107,7 @@ class Registros extends Controller
 
     $email = \Config\Services::email();
     $email->setFrom('desarrollo@geovoy.com', 'Escarh');
-    $email->setTo('brizeidarosales@geovoy.com');
+    $email->setTo('brizeidarosales@geovoy.com, raquel_magana@escarh.com');
     $email->setSubject('Nueva Solicitud de Servicios');
 
     $mensaje = "
