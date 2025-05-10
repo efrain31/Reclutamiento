@@ -74,7 +74,7 @@
                 de atracción de talento para encontrar al mejor candidato. La cotización se ajusta al volumen de vacantes,
                 y la factura se genera una vez cumplida la garantía de 15 o 21 días, según lo establecido en la cotización.
             </p>
-            <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
+            <a href="#formulario" class="btn2">Cotizar</a>
     </div>
 
     <div class="servicio">
@@ -86,7 +86,7 @@
                 Somos expertos en perfiles operativos, técnicos, administrativos, altos mandos y TI. Realizamos psicometrías,
                 verificaciones de referencias y ofrecemos garantía de 30 a 60 días según la posición.
             </p>
-            <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
+            <a href="#formulario" class="btn2">Cotizar</a>
     </div>
 </div>
 
@@ -99,7 +99,7 @@
                 Contamos con personal administrativo, operativo, mandos medios y gerenciales, asegurando siempre 
                 el mejor perfil para tu empresa.
             </p>
-            <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
+            <a href="#formulario" class="btn2">Cotizar</a>
     </div>
 
     <div class="servicio">
@@ -111,7 +111,7 @@
                 registros patronales y antecedentes en procesos legales, garantizando así una contratación
                 segura y confiable.
             </p>
-            <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
+            <a href="#formulario" class="btn2">Cotizar</a>
      </div>
 </div>
 
@@ -125,7 +125,7 @@
                 en zonas especifícas y volanteo para maximizar el impacto de tu mensaje y llegar a tu 
                 audencia ideal.
             </p>
-            <a href="<?= base_url('cotizar') ?>" class="btn2">Cotizar</a>
+            <a href="#formulario" class="btn2">Cotizar</a>
         </div>
     </div>
 </div>
@@ -375,4 +375,17 @@ body {
     background-color: white;
     --bs-form-select-bg-img: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e);
 }
+.btn2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #282977;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    }
+    .btn2:hover, .btn2:focus {
+    background-color: #1f225b;
+     }
     </style>
