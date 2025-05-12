@@ -1,17 +1,17 @@
-<?= $this->include('templates/header') ?> <!-- Llama al header -->
-<?= $this->include('templates/styless') ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Inicio | ESCARH</title>
+  <?= $this->include('templates/styless') ?>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
+<?= $this->include('templates/header') ?> <!-- Llama al header -->
      <!-- Primera seccion -->
 <div class="inicio-container"> <!-- Sección izquierda: círculo con imagen --> 
   <div class="circle">
@@ -74,7 +74,7 @@
                 de atracción de talento para encontrar al mejor candidato. La cotización se ajusta al volumen de vacantes,
                 y la factura se genera una vez cumplida la garantía de 15 o 21 días, según lo establecido en la cotización.
             </p>
-            <a href="#formulario" class="btn2">Cotizar</a>
+            <a href="javascript:void(0)" onclick="scrollToFormulario()" class="btn2">Cotizar</a>
     </div>
 
     <div class="servicio">
@@ -86,7 +86,7 @@
                 Somos expertos en perfiles operativos, técnicos, administrativos, altos mandos y TI. Realizamos psicometrías,
                 verificaciones de referencias y ofrecemos garantía de 30 a 60 días según la posición.
             </p>
-            <a href="#formulario" class="btn2">Cotizar</a>
+            <a href="javascript:void(0)" onclick="scrollToFormulario()" class="btn2">Cotizar</a>
     </div>
 </div>
 
@@ -99,7 +99,7 @@
                 Contamos con personal administrativo, operativo, mandos medios y gerenciales, asegurando siempre 
                 el mejor perfil para tu empresa.
             </p>
-            <a href="#formulario" class="btn2">Cotizar</a>
+            <a href="javascript:void(0)" onclick="scrollToFormulario()" class="btn2">Cotizar</a>
     </div>
 
     <div class="servicio">
@@ -111,7 +111,7 @@
                 registros patronales y antecedentes en procesos legales, garantizando así una contratación
                 segura y confiable.
             </p>
-            <a href="#formulario" class="btn2">Cotizar</a>
+            <a href="javascript:void(0)" onclick="scrollToFormulario()" class="btn2">Cotizar</a>
      </div>
 </div>
 
@@ -125,7 +125,7 @@
                 en zonas especifícas y volanteo para maximizar el impacto de tu mensaje y llegar a tu 
                 audencia ideal.
             </p>
-            <a href="#formulario" class="btn2">Cotizar</a>
+            <a href="javascript:void(0)" onclick="scrollToFormulario()" class="btn2">Cotizar</a>
         </div>
     </div>
 </div>
@@ -263,12 +263,6 @@
             submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Enviando...`;
         });
 
-        // Scroll automático window.location.href.includes('#formulario')
-        /*if (window.location.hash === "#formulario") {
-            const el = document.getElementById('formulario');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }*/
-        
         <?php if (session()->getFlashdata('success')): ?>
             Swal.fire({
                 icon: 'success',
@@ -288,7 +282,6 @@
                 confirmButtonColor: '#d33',
                 confirmButtonText: 'Intentar de nuevo'
             }).then(() => {
-               // window.location.hash = '#formulario';
                 document.getElementById('formulario').scrollIntoView({ behavior: 'smooth' });
             });
         <?php elseif (session()->getFlashdata('errors')): ?>
@@ -299,13 +292,16 @@
                 confirmButtonColor: '#f0ad4e',
                 confirmButtonText: 'Corregir'
             }).then(() => {
-               // window.location.hash = '#formulario';
-                //document.getElementById('formulario').scrollIntoView({ behavior: 'smooth' });
                 const el = document.getElementById('formulario');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
             });
         <?php endif; ?>
     });
+
+    function scrollToFormulario() {
+    const el = document.getElementById('formulario');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
 </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
