@@ -19,8 +19,8 @@
             <li class="menu-item hidden <?= (uri_string() == 'nosotros') ? 'active' : '' ?>">
                 <a href="<?= base_url('nosotros') ?>" id="btnNosotros">Nosotros</a>
             </li>
-            <li class="menu-item hidden <?= (uri_string() == 'bolsa_empleo') ? 'active' : '' ?>">
-                <a href="<?= base_url('bolsa_empleo') ?>" id="btnBolsa">Bolsa de Empleo</a>
+            <li class="menu-item hidden <?= (uri_string() == 'bolsat') ? 'active' : '' ?>">
+                <a href="<?= base_url('bolsat') ?>" id="btnBolsa">Bolsa de Empleo</a> <!--bolsa_empleo-->
             </li>
 
             <?php if (!session()->get('isLoggedIn')): ?>  <!-- Mostrar si el usuario NO ha iniciado sesión -->
