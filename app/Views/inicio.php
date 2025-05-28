@@ -305,6 +305,7 @@
 </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
 document.addEventListener("DOMContentLoaded", function () {
     const menuNosotros = document.querySelector("a[href='<?= base_url('nosotros') ?>']");
@@ -315,13 +316,13 @@ document.addEventListener("DOMContentLoaded", function () {
         inicioContainer2.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
     });
 
-    const menuBolsa = document.querySelector("a[href='<?= base_url('bolsat') ?>']");
+    /*const menuBolsa = document.querySelector("a[href='<.?= base_url('bolsat') ?>']");
     const bolsaContainer = document.querySelector(".inicio-container3");
 
     menuBolsa.addEventListener("click", function (event) {
         event.preventDefault(); // Evita la navegación a otra página
         bolsaContainer.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
-    });
+    });*/
 
     const menuInicio = document.querySelector("a[href='<?= base_url('inicio') ?>']");
     const inicioContainer = document.querySelector(".inicio-container");

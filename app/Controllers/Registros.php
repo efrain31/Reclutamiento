@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\RegistrosModel;
+use App\Models\ReclutamientoModel;
 use CodeIgniter\Controller;
 use CodeIgniter\Email\Email;
 
@@ -25,11 +26,12 @@ class Registros extends Controller
             'contrasena' => password_hash($this->request->getPost('contrasena'), PASSWORD_DEFAULT),
             'fecha'      => date('Y-m-d H:i:s')
         ];
-        //print_r($data);exit;
-        $registrosModel->insert($data);
-        //print_r($id); exit;
-    return redirect()->to('inicio')->with('success', 'Registro exitoso');
+        //print_r($data);exit;  
+        $registrosModel->insert($data);   
+        //print_r($id); exit;         
+    return redirect()->to('iniciar_session')->with('success', 'Registro exitoso');
     }
+    
     public function store2()
     {
     // Definir reglas de validación
@@ -41,7 +43,6 @@ class Registros extends Controller
         'municipio'  => 'required',
         'servicio'   => 'required|not_in_list[Selecciona]',
     ];
-
     // Mensajes personalizados en español
     $validacionMensajes = [
         'nombre' => [
@@ -75,7 +76,6 @@ class Registros extends Controller
                          ->with('errors', $this->validator->getErrors())
                          ->with('error_anchor', true); // Anclar al formulario
     }
-
         // Verificación del reCAPTCHA
     $recaptcha = $this->request->getPost('g-recaptcha-response');
     if (!$recaptcha) {
@@ -89,9 +89,8 @@ class Registros extends Controller
     if (!$responseKeys["success"]) {
         return redirect()->back()->withInput()->with('error', 'Falló la verificación de reCAPTCHA')->with('error_anchor', true);
     }
-
     // Guardar los datos y enviar correo
-    $registrosModel = new RegistrosModel();
+    $reclutamientoModel = new ReclutamientoModel();
     date_default_timezone_set("America/Mexico_City");
 
     $data = [
@@ -107,7 +106,7 @@ class Registros extends Controller
 
     $email = \Config\Services::email();
     $email->setFrom('desarrollo@geovoy.com', 'Escarh');
-    $email->setTo('brizeidarosales@geovoy.com, raquel_magana@escarh.com');
+    $email->setTo('brizeidarosales@geovoy.com, raquel_magana@escarh.com'); //
     $email->setSubject('Nueva Solicitud de Servicios');
 
     $mensaje = "
@@ -131,41 +130,16 @@ class Registros extends Controller
         $email->setMailType('html');
 
         if ($email->send()) {
-            $registrosModel->insert($data);
-            return redirect()->to('inicio')->with('success', 'Registro exitoso. El correo fue enviado correctamente.');
+            $reclutamientoModel->insert($data);
+            return redirect()->to('inicio')->with('success', 'El correo fue enviado correctamente.');
         } else {
             log_message('error', 'Error al enviar correo: ' . print_r($email->printDebugger(['headers']), true));
-            return redirect()->to('inicio')->with('error', 'No se pudo enviar el correo. El registro no se guardó.');
+            return redirect()->to('inicio')->with('error', 'No se pudo enviar el correo.');
         }
     } catch (\Exception $e) {
         log_message('error', 'Excepción al enviar correo: ' . $e->getMessage());
-        return redirect()->to('inicio')->with('error', 'Ocurrió un error al enviar el correo. El registro no se guardó.'); //, '#formulario'
+        return redirect()->to('inicio')->with('error', 'Ocurrió un error al enviar el correo.'); //, '#formulario'
     }
-    }
-    public function login()
-    {
-        return view('inicio');
-    }
-
-    public function auth()
-    {
-        $usuariosModel = new UsuariosModel();
-        $correo = $this->request->getPost('correo');
-        $contrasena = $this->request->getPost('contrasena');
-
-        $usuario = $usuariosModel->where('correo', $correo)->first();
-
-        if ($usuario && password_verify($contrasena, $usuario['contrasena'])) {
-            session()->set(['usuario_id' => $usuario['id'], 'usuario_nombre' => $user['nombre'], 'logged_in' => true]);
-            return redirect()->to('/dashboard');
-        } else {
-            return redirect()->to('/login')->with('error', 'Credenciales incorrectas');
-        }
-    }
-
-    public function logout()
-    {
-        session()->destroy();
-        return redirect()->to('/login');
+    
     }
 }
