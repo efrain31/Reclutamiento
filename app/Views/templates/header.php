@@ -8,45 +8,45 @@
             </li>
 
             <div class="bri-menu">
-              <nav>
+            <nav>
 
             <li class="menu-toggle">
                 <button id="menuToggle">&#9776;</button>
             </li>
+            <?php if (!session()->get('isLoggedIn')): ?>  <!-- Mostrar si el usuario NO ha iniciado sesión -->
             <li class="menu-item hidden <?= (uri_string() == 'inicio') ? 'active' : '' ?>">
                 <a href="<?= base_url('inicio') ?>" >Inicio</a>
             </li>
             <li class="menu-item hidden <?= (uri_string() == 'nosotros') ? 'active' : '' ?>">
                 <a href="<?= base_url('nosotros') ?>" id="btnNosotros">Nosotros</a>
             </li>
-            <li class="menu-item hidden <?= (uri_string() == 'bolsat') ? 'active' : '' ?>">
-                <a href="<?= base_url('bolsat') ?>" id="btnBolsa">Bolsa de Empleo</a> <!--bolsa_empleo-->
+            <li class="menu-item hidden <?= (uri_string() == 'bolsa_empleo') ? 'active' : '' ?>">
+                <a href="<?= base_url('bolsa_empleo') ?>" id="btnBolsa">Bolsa de Empleo</a> <!--bolsa_empleo-->
             </li>
 
-            <?php if (!session()->get('isLoggedIn')): ?>  <!-- Mostrar si el usuario NO ha iniciado sesión -->
             <li class="menu-item hidden <?= (uri_string() == 'registro') ? 'active' : '' ?>">
                 <a href="<?= base_url('registro') ?>" class="button-item">Registrate</a>
             </li>
+
             <li class="menu-item hidden <?= (uri_string() == 'iniciar_session') ? 'active' : '' ?>">
-                <a href="#" class="button-item-bri">Iniciar Sesión</a>
-            </li> <!--<.?= base_url('iniciar_session') ?>-->
+                <a href="<?= base_url('iniciar_session') ?>" class="button-item-bri">Iniciar Sesión</a>
+            </li><!--<.?= base_url('iniciar_session') ?>-->
 
-            <?php else: ?><!-- Mostrar si el usuario SÍ ha iniciado sesión -->
-
-            <li class="menu-item hidden">   <!-- Icono de usuario -->
-                <img src="<?= base_url('img/user-icon.png') ?>" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 10px;">
-            </li>
-            <li class="menu-item hidden">
-                <a href="<?= base_url('perfil') ?>" class="button-item">Mi perfil</a>
-            </li>
-            <li class="menu-item hidden">
-                <a href="<?= base_url('logout') ?>" class="button-item-briz">
-                <img src="<?= base_url('img/logout1.gif') ?>" alt="Usuario" style="width: 32px; height: 32px;"> 
-                Cerrar Sesión</a>
+            <?php else: ?> <!-- Mostrar si el usuario SÍ ha iniciado sesión -->
+            <li class="menu-item">
+            <img src="<?= base_url('img/user-icon.png') ?>" alt="Usuario" id="user-icon" style="width: 32px; height: 32px; border-radius: 50%; cursor: pointer;">       
+                <!-- Menú desplegable -->
+                <ul id="user-menu" class="user-menu" aria-label="Menú de usuario">
+                <li><a href="<?= base_url('perfil') ?>">Mi perfil&nbsp;</a></li>
+                <li><a href="<?= base_url('crear_cv') ?>">Crear CV</a></li>
+                <li><a href="<?= base_url('vacantes-postuladas') ?>">Vacantes postuladas</a></li>
+                <!--<li><a href="<-?= base_url('olvide-contrasena') ?>">Olvidé mi contraseña</a></li>-->
+                <li><a href="<?= base_url('logout') ?>">Cerrar sesión</a></li>
+              </ul>
             </li>
             <?php endif; ?>
-             </nav>  
-            </div>
+            </nav> 
+        </div>
     </nav>
 </div>  
 </header>
@@ -69,6 +69,21 @@
                 }
             }
         });
+    });
+
+    document.getElementById('user-icon').addEventListener('click', function() {
+    const menu = document.getElementById('user-menu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    
+    });
+
+       // Opcional: cerrar el menú si se hace clic fuera
+       window.addEventListener('click', function(e) {
+       const icon = document.getElementById('user-icon');
+       const menu = document.getElementById('user-menu');
+       if (e.target !== icon && !menu.contains(e.target)) {
+        menu.style.display = 'none';
+       }
     });
 </script>
 
@@ -279,6 +294,37 @@
             stroke: #000;
             stroke-width: 32px;
         }
+        .user-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #252869;
+    color: #fff;
+    padding: 8px;
+    list-style: none;
+    margin-top: 10px;
+    border-radius: 6px;
+    width: 180px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.user-menu li {
+    padding: 1px 0;
+}
+
+.user-menu li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.user-menu li a:hover {
+    background-color: #1a1c5a;
+    border-radius: 4px;
+    padding: 6px;
+}
     @media (max-width: 768px) {
        
     /* Estilo de los botones de "Regístrate" y "Iniciar Sesión" */
@@ -327,6 +373,8 @@
                 width: calc(100% - 30px);
                 transform: translateX(-20%);
                 min-width: 150px;
+               /* margin: 0 auto;
+                text-align: center;*/
             }
             header .menu-toggle {
                 display: block;

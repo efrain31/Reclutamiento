@@ -3,7 +3,7 @@
 namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
-class CreateRegistros extends Migration
+class CreateReclutamiento extends Migration
 {
     public function up()
     {
@@ -19,11 +19,6 @@ class CreateRegistros extends Migration
                 'constraint' => 30,
                 'null'       => true
             ],
-            'apellido'    => [
-                'type'       => 'VARCHAR',
-                'constraint' => 30,
-                'null'       => true
-            ],
             'correo'      => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
@@ -34,25 +29,28 @@ class CreateRegistros extends Migration
                 'constraint' => 15,
                 'null'       => true
             ],
-            'soy'         => [
+            'empresa'     => [
                 'type'       => 'VARCHAR',
-                'constraint' => 30,
+                'constraint' => 60,
                 'null'       => true
             ],
-            'contrasena'  => [
+            'municipio'   => [
                 'type'       => 'VARCHAR',
-                'constraint' => 255, // Mejor usar 255 para almacenar hash
+                'constraint' => 100,
+                'null'       => true
+            ],
+            'servicio'    => [
+                'type'       => 'VARCHAR',
+                'constraint' => 40,
+                'null'       => true
+            ],
+            'adicional'   => [
+                'type'       => 'TEXT',
                 'null'       => true
             ],
             'fecha'       => [
                 'type'       => 'DATE',
                 'null'       => true
-            ],
-            'id_rol'    => [
-                'type'       => 'INT',
-                'constraint' => 11,
-                'null'       => false,
-                'default'    => 2 // usuario por default
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
@@ -65,12 +63,11 @@ class CreateRegistros extends Migration
         ]);
 
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('id_rol', 'roles', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('registros');
+        $this->forge->createTable('reclutamiento');
     }
 
     public function down()
     {
-        $this->forge->dropTable('registros');
+        $this->forge->dropTable('reclutamiento');
     }
 }

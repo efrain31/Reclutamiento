@@ -1,0 +1,162 @@
+
+.cv {
+    background-color: #d9d9d9;
+    padding: 40px;
+    border-radius: 20px;
+    top: 30px;
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.cv-titulo {
+    font-weight: bold;
+    color: #282977;
+}
+.cv-subtitulo {
+    font-size: 24px;
+    margin: 20px 0;
+}
+.cv-button {
+    background-color: #282977;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 12px 30px;
+    font-size: 18px;
+}
+.cv-button:hover {
+    background-color: #1c1d5a;
+    transform: scale(1.05);
+}
+.titulo {
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 18px;
+    color: #555;
+}
+
+.buscador {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.buscador-input {
+    /*width: 300px;*/
+  padding: 12px;
+  font-size: 16px;
+}
+
+.buscador-btn {
+    /*min-width: 40px;*/
+    padding: 12px 16px;
+  font-size: 18px;
+  background-color: #282977;
+  border: none;
+}
+.buscador-btn:hover {
+    background-color: #1c1d5a;
+  }
+.filtros-btn {
+    /*min-width: 100px;*/
+  padding: 12px 20px;
+  font-size: 16px;
+}
+.seccion-vacantes {
+    margin-top: 50px;
+    font-weight: bold;
+    text-align: left;
+}
+.card-vacante {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: left;
+}
+.vacante-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.vacante-titulo {
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0;
+}
+.vacante-descripcion {
+    margin: 10px 0;
+    color: #333;
+}
+.vacante-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #555;
+}
+.btn-postulate {
+    background-color: #282977;
+    border: none;
+    padding: 10px 25px;
+}
+.btn-postulate:hover {
+    background-color: #1c1d5a;
+}
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 30%;
+}
+@media (max-width: 768px) {
+    .cv {
+        padding: 25px;
+    }
+    .cv-subtitulo {
+        font-size: 20px;
+    }
+
+    .cv-button {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+    }
+    .buscador {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .buscador-input {
+        width: 100%;
+    }
+
+    .card-vacante {
+        padding: 20px;
+    }
+    .input-group .form-control {
+        font-size: 16px;
+    }
+    .input-group .btn {
+        font-size: 16px;
+    }
+      .filtros-btn {
+        width: 100%;
+    }
+    .d-flex.flex-wrap.gap-2 {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .buscador-input-group {
+        width: 100%;
+    }
+}

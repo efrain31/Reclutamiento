@@ -1,15 +1,16 @@
-<?= $this->include('templates/header') ?> <!-- Llama al header -->
-<?= $this->include('templates/styless') ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Registro | ESCARH</title>
+  <?= $this->include('templates/styless') ?>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+<?= $this->include('templates/header') ?>
+
 <div class="registro">
         <div class="row container-custom">
             <div class="col-md-5 text-md-start text-center mb-4">
@@ -60,7 +61,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
+   document.addEventListener("DOMContentLoaded", function() {
         // Detectar si estamos en la página de Registro
         let urlActual = window.location.pathname;
         if (urlActual.includes("registro")) {
@@ -122,7 +123,7 @@
                 confirmButtonColor: '#f0ad4e',
                 confirmButtonText: 'Corregir'
             }).then(() => {
-                window.location.hash = '#formulario';
+                window.location.hash = 'registro';
             });
         <?php endif; ?>
     });
@@ -136,5 +137,8 @@
 .form-select {
     background-color: white;
     --bs-form-select-bg-img: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e);
+}
+.text-md-start {
+    text-align: center !important;
 }
     </style>
