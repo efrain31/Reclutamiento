@@ -43,6 +43,8 @@
           <option value="Chofer">Chofer</option>
           <option value="Ventas">Ventas</option>
           <option value="Administrativo">Administrativo</option>
+          <option value="Mecánico">Mecánico</option>
+          <option value="Electro Mecánico">Electro Mecánico</option>
         </select>
       </div>
 
