@@ -17,19 +17,49 @@ class Registros extends Controller
     {
         $registrosModel = new RegistrosModel();
         date_default_timezone_set("America/Mexico_City");
+
+        $correo_usuario = $this->request->getPost('correo');
+        $password_plana = $this->request->getPost('contrasena'); // SIN hash para enviar
+
         $data = [
             'nombre'     => $this->request->getPost('nombre'),
             'apellido'   => $this->request->getPost('apellido'),
-            'correo'     => $this->request->getPost('correo'),
+            'correo'     => $correo_usuario,
             'celular'    => $this->request->getPost('celular'),
             'soy'        => $this->request->getPost('soy'),
-            'contrasena' => password_hash($this->request->getPost('contrasena'), PASSWORD_DEFAULT),
+            'contrasena' => password_hash($password_plana, PASSWORD_DEFAULT),
             'fecha'      => date('Y-m-d H:i:s')
         ];
         //print_r($data);exit;  
-        $registrosModel->insert($data);   
-        //print_r($id); exit;         
-    return redirect()->to('iniciar_session')->with('success', 'Registro exitoso');
+        // Enviar correo
+    $email = \Config\Services::email();
+    $email->setFrom('desarrollo@geovoy.com', 'ESCARH');
+    $email->setTo($correo_usuario);
+    $email->setSubject('Registro exitoso en ESCARH');
+
+   // Plantilla HTML
+   $mensaje = view('emails/registros', [
+    'nombre'     => $data['nombre'],
+    'apellido'   => $data['apellido'],
+    'correo'     => $correo_usuario,
+    'contrasena' => $password_plana
+]);
+
+   try {
+    $email->setMessage($mensaje);
+    $email->setMailType('html');
+
+    if ($email->send()) {
+        $registrosModel->insert($data);  
+        return redirect()->to('iniciar_session')->with('success', 'Registro exitoso. Revisa tu correo.');
+    } else {
+        log_message('error', 'Error al enviar correo: ' . print_r($email->printDebugger(['headers']), true));
+        return redirect()->to('inicio')->with('error', 'No se pudo enviar el correo.');
+    }
+} catch (\Exception $e) {
+    log_message('error', 'Excepción al enviar correo: ' . $e->getMessage());
+    return redirect()->to('inicio')->with('error', 'Ocurrió un error al enviar el correo.'); //, '#formulario'
+}   
     }
     
     public function store2()

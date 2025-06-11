@@ -119,10 +119,15 @@
 }
 
 .vacante-logo {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 8px;
-  object-fit: cover;
+  /*object-fit: cover;*/
+  /*width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background: #f2f2f2;*/
+  object-fit: contain;
 }
 
 .vacante-logo-placeholder {
