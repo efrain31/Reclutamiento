@@ -7,6 +7,7 @@
   <?= $this->include('templates/styless') ?>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 <?= $this->include('templates/header') ?>
@@ -47,18 +48,25 @@
                                 <option>Postulado</option>
                             </select>
                         </div>
-                        <div class="col-md-6">
-                                <label class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" name="contrasena" placeholder="Escriba su contraseña" required>
-                            </div>
-                            <div class="botones">
-                        <button type="submit" class="btn3" >Regístrate</button>
-</div>
+                        <div class="col-md-6 position-relative">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Escriba su contraseña" required>
+                            <span toggle="#contrasena" class="bi bi-eye-slash toggle-password"></span>
+                        </div>
+                        
+                        <div class="g-recaptcha mb-3" data-sitekey="6Leo_BQrAAAAAMQKs5ukj9Fa_4AUYXJF0OBltts7"></div>
+                         
+                        <div class="botones">
+                            <button type="submit" class="btn3" >Regístrate</button>
+                       </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Bootstrap icons -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
    document.addEventListener("DOMContentLoaded", function() {
@@ -77,7 +85,7 @@
         }
     });
 
-    document.addEventListener("DOMContentLoaded", function() {
+   /* document.addEventListener("DOMContentLoaded", function() {
         // Detectar si estamos en la página de Registro
         let urlActual = window.location.pathname;
         if (urlActual.includes("registro")) {
@@ -87,11 +95,11 @@
             if (btnBolsa) {
                 btnBolsa.addEventListener("click", function(event) {
                     event.preventDefault(); // Evita la navegación normal
-                    window.location.href = "<?= base_url('inicio') ?>#bolsas"; // Redirige a la sección "bolsa" en inicio
+                    window.location.href = "</?= base_url('inicio') ?>#bolsas"; // Redirige a la sección "bolsa" en inicio
                 });
             }
         }
-    });
+    });*/
 
     document.addEventListener("DOMContentLoaded", function() {
     <?php if (session()->getFlashdata('success')): ?>
@@ -127,7 +135,24 @@
             });
         <?php endif; ?>
     });
-    </script>
+
+  const togglePassword = document.querySelectorAll(".toggle-password");
+  togglePassword.forEach(item => {
+    item.addEventListener("click", function () {
+      const input = document.querySelector(this.getAttribute("toggle"));
+      if (input.type === "password") {
+        input.type = "text";
+        this.classList.remove("bi-eye-slash");
+        this.classList.add("bi-eye");
+      } else {
+        input.type = "password";
+        this.classList.remove("bi-eye");
+        this.classList.add("bi-eye-slash");
+      }
+    });
+  });
+
+</script>
 </body>
 </html>
 <?= $this->include('templates/footer') ?> <!-- Llama al footer -->
@@ -141,4 +166,12 @@
 .text-md-start {
     text-align: center !important;
 }
+.toggle-password {
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 75%;
+      transform: translateY(-50%);
+      color: #888;
+    }
     </style>

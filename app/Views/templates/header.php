@@ -30,7 +30,7 @@
 
             <li class="menu-item hidden <?= (uri_string() == 'iniciar_session') ? 'active' : '' ?>">
                 <a href="<?= base_url('iniciar_session') ?>" class="button-item-bri">Iniciar Sesión</a>
-            </li><!--<.?= base_url('iniciar_session') ?>-->
+            </li>
 
             <?php else: ?> <!-- Mostrar si el usuario SÍ ha iniciado sesión -->
             <li class="menu-item">
@@ -40,7 +40,6 @@
                 <li><a href="<?= base_url('perfil') ?>">Mi perfil&nbsp;</a></li>
                 <li><a href="<?= base_url('crear_cv') ?>">Crear CV</a></li>
                 <li><a href="<?= base_url('vacantes-postuladas') ?>">Vacantes postuladas</a></li>
-                <!--<li><a href="<-?= base_url('olvide-contrasena') ?>">Olvidé mi contraseña</a></li>-->
                 <li><a href="<?= base_url('logout') ?>">Cerrar sesión</a></li>
               </ul>
             </li>
