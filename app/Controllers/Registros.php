@@ -15,6 +15,19 @@ class Registros extends Controller
 
     public function store()
     {
+        $recaptcha = $this->request->getPost('g-recaptcha-response');
+        if (!$recaptcha) {
+            return redirect()->back()->withInput()->with('error', 'Por favor verifica el reCAPTCHA')->with('error_anchor', true);
+        }
+    
+        $secret = '6Leo_BQrAAAAADwwbYZvkszk9JJGuzgu7QwrgUM2';
+        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$recaptcha}");
+        $responseKeys = json_decode($response, true);
+    
+        if (!$responseKeys["success"]) {
+            return redirect()->back()->withInput()->with('error', 'Falló la verificación de reCAPTCHA')->with('error_anchor', true);
+        }
+        
         $registrosModel = new RegistrosModel();
         date_default_timezone_set("America/Mexico_City");
 
@@ -33,7 +46,7 @@ class Registros extends Controller
         //print_r($data);exit;  
         // Enviar correo
     $email = \Config\Services::email();
-    $email->setFrom('desarrollo@geovoy.com', 'ESCARH');
+    $email->setFrom('desarrollo@escarh.com', 'ESCARH');
     $email->setTo($correo_usuario);
     $email->setSubject('Registro exitoso en ESCARH');
 
@@ -43,7 +56,7 @@ class Registros extends Controller
     'apellido'   => $data['apellido'],
     'correo'     => $correo_usuario,
     'contrasena' => $password_plana
-]);
+    ]);
 
    try {
     $email->setMessage($mensaje);
@@ -56,13 +69,13 @@ class Registros extends Controller
         log_message('error', 'Error al enviar correo: ' . print_r($email->printDebugger(['headers']), true));
         return redirect()->to('inicio')->with('error', 'No se pudo enviar el correo.');
     }
-} catch (\Exception $e) {
+    } catch (\Exception $e) {
     log_message('error', 'Excepción al enviar correo: ' . $e->getMessage());
     return redirect()->to('inicio')->with('error', 'Ocurrió un error al enviar el correo.'); //, '#formulario'
-}   
+    }   
     }
     
-    public function store2()
+public function store2()
     {
     // Definir reglas de validación
     $validacionReglas = [
@@ -135,7 +148,7 @@ class Registros extends Controller
     ];
 
     $email = \Config\Services::email();
-    $email->setFrom('desarrollo@geovoy.com', 'Escarh');
+    $email->setFrom('desarrollo@escarh.com', 'Escarh');
     $email->setTo('brizeidarosales@geovoy.com, raquel_magana@escarh.com'); //
     $email->setSubject('Nueva Solicitud de Servicios');
 

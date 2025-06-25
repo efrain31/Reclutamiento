@@ -79,7 +79,7 @@
       <div class="col-md-6">
         <label class="form-label">Salario Mensual</label>
         <!--<input type="text" name="salario" class="form-control" placeholder="Salario">-->
-       <select name="salario" class="form-select">
+        <select name="salario" class="form-select">
           <option value="$1000">$1000</option>
           <option value="$5000">$5000</option>
           <option value="$10000">$10000</option>

@@ -19,8 +19,15 @@ $routes->get('/iniciar_session', 'SesionController::login');
 $routes->post('/sesion/stores', 'SesionController::stores');
 $routes->get('/logout', 'SesionController::logout');
 //$routes->get('/auth/google', 'SesionController::googleLogin');
+
 // crear cv
 $routes->get('/crear_cv', 'CrearCvController::cv');
+
+//Recuperar contraseña
+$routes->get('recuperar-contrasena', 'RecuperarContrasenaController::recuperarContrasena');
+$routes->post('enviar-recuperacion', 'RecuperarContrasenaController::enviarRecuperacion');
+$routes->get('reestablecer-contrasena', 'RecuperarContrasenaController::restablecerContrasena');
+$routes->post('actualizar-contrasena', 'RecuperarContrasenaController::actualizarContrasena');
 
 // crear vacante
 $routes->get('bolsa_empleo', 'VacantesController::bolsa_emp');

@@ -11,7 +11,7 @@ class VacanteModel extends Model
     'categoria', 'habilidades', 'detalles', 'requisitos', 'responsabilidades', 'prestaciones', 'estatus'
     ];
 
-    protected $useTimestamps = true; // <-- activa timestamps automáticos
+    protected $useTimestamps = true; // activa timestamps automáticos
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 }

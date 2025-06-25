@@ -17,7 +17,7 @@
 
 <div class="container login-container">
     <div class="col-md-6">
-            <img src="ruta/a/tu/imagen.jpg" alt="Imagen" class="img-fluid">
+            <img src="img/inicio-sesion.jpeg" alt="Imagen" class="img-fluid">
         </div>
     <div class="login-box">
         <h3 class="text-center">Inicia Sesión</h3>
@@ -32,9 +32,10 @@
                 <label class="form-label">Correo Electrónico</label>
                 <input type="email" class="form-control" name="correo" placeholder="Escribe tu correo" required>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 position-relative">
                 <label class="form-label">Contraseña</label>
-                <input type="password" class="form-control" name="contrasena" placeholder="Escribe tu contraseña" required>
+                <input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Escribe tu contraseña" required>
+                <span toggle="#contrasena" class="bi bi-eye-slash toggle-password"></span>
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" name="recuerdame">
@@ -44,7 +45,7 @@
         </form>
         <div class="text-center mt-3">
             <p>No tienes cuenta? <a href="<?= base_url('registro') ?>">Regístrate</a></p>
-           <!-- <p><a href="</?= base_url('recuperar-contrasena') ?>">Olvidé mi contraseña</a></p>-->
+            <p><a href="<?= base_url('recuperar-contrasena') ?>">Olvidé mi contraseña</a></p>
         </div>
     </div>
 </div>
@@ -52,6 +53,41 @@
 </body>
 </html>
 <?= $this->include('templates/footer') ?>
+<!-- Bootstrap icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<script>
+    const togglePassword = document.querySelectorAll(".toggle-password");
+  togglePassword.forEach(item => {
+    item.addEventListener("click", function () {
+      const input = document.querySelector(this.getAttribute("toggle"));
+      if (input.type === "password") {
+        input.type = "text";
+        this.classList.remove("bi-eye-slash");
+        this.classList.add("bi-eye");
+      } else {
+        input.type = "password";
+        this.classList.remove("bi-eye");
+        this.classList.add("bi-eye-slash");
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+        // Detectar si estamos en la página de Registro
+        let urlActual = window.location.pathname;
+        if (urlActual.includes("iniciar_session")) {
+            // Capturar el botón "Nosotros"
+            let btnNosotros = document.getElementById("btnNosotros");
+
+            if (btnNosotros) {
+                btnNosotros.addEventListener("click", function(event) {
+                    event.preventDefault(); // Evita la navegación normal
+                    window.location.href = "<?= base_url('inicio') ?>#nosotros"; // Redirige a la sección "Nosotros" en inicio
+                });
+            }
+        }
+    });
+  </script>
 
 <style>
         body {
@@ -93,4 +129,27 @@
         .btn-primary:hover {
             background-color: #1d1d4f;
         }
+        .img-fluid {
+            max-width: 80%;
+            height: auto;
+        }
+        .toggle-password {
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 75%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+        @media (max-width: 768px) {
+        .login-container {
+            display: inline;
+            align-items: center;
+        }
+        .img-fluid {
+            max-width: 70%;
+            height: auto;
+        }
+        }
+
     </style>
