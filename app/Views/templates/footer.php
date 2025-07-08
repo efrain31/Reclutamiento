@@ -13,7 +13,7 @@
         <a href="https://www.facebook.com/share/1CC1nPSZAL/" target="_blank" rel="noopener noreferrer">
              <img src="<?= base_url('img/facebook-icon.png') ?>" alt="Facebook" width="30">
         </a>
-        <a href="https://www.linkedin.com/company/escarh-s-c-/" target="_blank">
+        <a href="https://www.linkedin.com/company/106988075" target="_blank">
              <img src="<?= base_url('img/linkedin-icon.png') ?>" alt="Linkedin" width="30">
         </a> 
         <a href="https://www.instagram.com/escarhmx" target="_blank">
@@ -39,7 +39,7 @@
     </div>
     </div>
     <div class= "version">
-    &copy; Desarrollo GEOVOY <span id="anio"></span> <span class="d-none d-sm-inline-block"> - V.1.0.16 </span>
+    &copy; Desarrollo GEOVOY <span id="anio"></span> <span class="d-none d-sm-inline-block"> - V.1.0.17 </span>
    </div>
 </footer>
 <script>
