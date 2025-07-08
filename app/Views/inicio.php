@@ -152,8 +152,8 @@
         <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
             <!--<span class="faq-icon">●</span>-->
     <div>
-        <strong>¿En qué países opera ESCARH?</strong><br>
-        <p>Trabajamos con empresas en diferentes estados de la República Mexicana. Contáctanos para más detalles sobre nuestra cobertura.</p>
+        <strong>¿Qué diferencia a ESCARH de otras agencias de reclutamiento?</strong><br>
+        <p>Nos enfocamos en procesos personalizados, atención cercana y uso de tecnología para atraer y filtrar candidatos de forma efectiva. Nuestro compromiso es entregar resultados rápidos sin descuidar la calidad del perfil.</p>
     </div>
     </div>
     <div class="faq-item">
@@ -168,8 +168,8 @@
         <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
         <!--<span class="faq-icon">●</span>-->
     <div>
-        <strong>¿ESCARH solo trabaja con empresas o también con candidatos?</strong><br>
-            <p>Brindamos apoyo tanto a empresas que buscan el mejor talento como a candidatos que desean encontrar oportunidades laborales acordes a su perfil y experiencia.</p>
+        <strong>¿Cuánto tiempo toma cubrir una vacante con ESCARH?</strong><br>
+            <p>El tiempo puede variar según el perfil solicitado, pero al especializarnos en reclutamiento masivo, contamos con bases de datos activas y estrategias digitales que agilizan la captación de talento en el menor tiempo posible.</p>
     </div>
     </div>
     </div>
