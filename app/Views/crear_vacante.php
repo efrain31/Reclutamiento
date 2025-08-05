@@ -18,7 +18,7 @@
   <h2 class="section-title">Nueva Vacante</h2>
   
   <div style="text-align: right;">
-        <a href="javascript:window.history.go(-1);" class="btn btn-link">Atrás</a>
+        <a href="javascript:window.history.go(-1);" class="btn btn-link">← Atrás</a>
   </div>
 
   <h2 class="section-sub">Llena la información</h2>

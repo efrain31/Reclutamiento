@@ -24,8 +24,8 @@
         mejor talento. Nuestro proceso está garantizado, asegurando candidatos calificados en menos de 72 horas.
       </p>
     <div class="botones">
-      <a href="#servicios" class="btnn">¿Buscas Trabajo?</a>
-      <a href="#servicios" class="btn1">Quiero Contratar</a>
+      <a href="<?= base_url('bolsa_empleo') ?>" class="btnn">¿Buscas Trabajo?</a>
+      <a href="javascript:void(0)" onclick="scrollToFormulario()" class="btn1">Quiero Contratar</a>
     </div>
   </div>
 </div>

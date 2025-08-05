@@ -30,11 +30,11 @@
     </button>
   </form>
 
-  <?php if (session()->get('isLoggedIn') && session()->get('id_rol') === '1'): ?>
+  <!--</?php if (session()->get('isLoggedIn') && session()->get('id_rol') === '1'): ?>
     <div class="mb-4">
-    <a href="<?= base_url('crear_vacante') ?>" class="btn btn-crear">Crear Vacante</a>
+    <a href="</?= base_url('crear_vacante') ?>" class="btn btn-crear">Crear Vacante</a>
     </div>
-  <?php endif; ?>
+  </?php endif; ?>-->
     <h2 class="seccion-vacantes">Vacantes disponibles</h2>
 
   <div id="vacantes-container">
@@ -76,6 +76,30 @@ $(document).ready(function(){
     });
     });
 });
+
+// SweetAlert mensajes desde Flashdata
+  <?php if(session()->getFlashdata('success')): ?>
+    Swal.fire({
+      icon: 'success',
+      title: '¡Listo!',
+      text: <?= json_encode(session()->getFlashdata('success')) ?>,
+      confirmButtonColor: '#1a1e6a'
+    });
+  <?php elseif(session()->getFlashdata('error')): ?>
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: <?= json_encode(session()->getFlashdata('error')) ?>,
+      confirmButtonColor: '#1a1e6a'
+    });
+  <?php elseif(session()->getFlashdata('info')): ?>
+    Swal.fire({
+      icon: 'info',
+      title: 'Atención',
+      text: <?= json_encode(session()->getFlashdata('info')) ?>,
+      confirmButtonColor: '#1a1e6a'
+    });
+  <?php endif; ?>
 </script>
 
 <style>

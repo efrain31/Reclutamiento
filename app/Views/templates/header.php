@@ -34,15 +34,20 @@
 
             <?php else: ?> <!-- Mostrar si el usuario SÍ ha iniciado sesión -->
             <li class="menu-item">
-            <img src="<?= base_url('img/user-icon.png') ?>" alt="Usuario" id="user-icon" style="width: 32px; height: 32px; border-radius: 50%; cursor: pointer;">       
-                <!-- Menú desplegable -->
+            <img src="<?= base_url('img/user-icon.png') ?>" alt="Usuario" id="user-icon" style="width: 32px; height: 32px; border-radius: 50%; cursor: pointer;">             
+            <!-- Menú desplegable -->
                 <ul id="user-menu" class="user-menu" aria-label="Menú de usuario">
-                <li><a href="<?= base_url('perfil') ?>">Mi perfil&nbsp;</a></li>
-                <li><a href="<?= base_url('crear_cv') ?>">Crear CV</a></li>
-                <li><a href="<?= base_url('vacantes-postuladas') ?>">Vacantes postuladas</a></li>
+            <?php if (session()->get('isLoggedIn') && session()->get('id_rol') === '1'): ?>
+                <li><a href="<?= base_url('listado_cv') ?>">Postulaciones</a></li>
+                <li><a href="<?= base_url('crear_vacante') ?>">Crear Vacante</a></li>
+            <?php elseif (session()->get('isLoggedIn') && session()->get('id_rol') === '2'): ?>
+                <!--<li><a href="<-?= base_url('perfil') ?>">Mi perfil&nbsp;</a></li>-->
+                <li><a href="<?= base_url('vista_cv') ?>">Crear CV</a></li>
+                <!--<li><a href="<-?= base_url('vacantes-postuladas') ?>">Vacantes postuladas</a></li>-->
+            <?php endif; ?>
                 <li><a href="<?= base_url('logout') ?>">Cerrar sesión</a></li>
-              </ul>
-            </li>
+                </ul>
+                </li>
             <?php endif; ?>
             </nav> 
         </div>

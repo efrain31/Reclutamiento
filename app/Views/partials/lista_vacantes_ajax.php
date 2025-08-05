@@ -22,13 +22,13 @@
                     <a href="<?= base_url('editar_vacante/'.$vacante['id']) ?>" class="btn btn-editar">Editar vacante</a>
                 </div>
             <?php elseif (session()->get('isLoggedIn') && session()->get('id_rol') === '2'): ?>
-                <!--<div class="vacante-actions">
-                    <a href="</?= base_url('postulate/'.$vacante['id']) ?>" class="btn btn-postulate">Postúlate</a>
-                </div>-->
+                <div class="vacante-actions">
+                    <a href="<?= base_url('postulacion/'.$vacante['id']) ?>" class="btn btn-postulate">Postúlate</a>
+                </div>
             <?php elseif (!session()->get('isLoggedIn')): ?>
-                <!--<div class="vacante-actions">
-                    <a href="</?= base_url('postulate/'.$vacante['id']) ?>" class="btn btn-postulate">Postúlate</a>
-                </div>-->
+                <div class="vacante-actions">
+                    <a href="<?= base_url('postulacion/'.$vacante['id']) ?>" class="btn btn-postulate">Postúlate</a>
+                </div>
             <?php endif; ?>
         </div>
 
@@ -36,8 +36,8 @@
             <span class="badge bg-light border text-dark"><?= esc($vacante['tipo']) ?></span>
             <small><i class="bi bi-geo-alt-fill me-1"></i><?= esc($vacante['ubicacion']) ?></small>
             <?php if (function_exists('time_elapsed_string')): ?>
-                <small><i class="bi bi-clock me-1"></i><?= time_elapsed_string($vacante['created_at']) ?></small>
-            <?php endif; ?>
+          <small><i class="bi bi-clock me-1"></i><?= time_elapsed_string($vacante['created_at']) ?></small>
+        <?php endif; ?>
         </div>
     <?php endforeach; ?>
     <div class="mt-4">

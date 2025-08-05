@@ -18,7 +18,7 @@
   <div class="row">
 
   <div style="text-align: right;">
-        <a href="javascript:window.history.go(-1);" class="btn btn-link">Atrás</a>
+        <a href="javascript:window.history.go(-1);" class="btn btn-link">← Atrás</a>
   </div>
 
     <div class="col-md-8">
@@ -79,13 +79,13 @@
           <a href="<?= base_url('editar_vacante/'.$vacante['id']) ?>" class="btn btn-bri mt-5">Editar vacante</a>
         </div>
         <?php elseif (session()->get('isLoggedIn') && session()->get('id_rol') === '2'): ?>
-          <!--<div class="vacante-actions">
-          <a href="</?= base_url('vacantes/postulate/'.$vacante['id']) ?>" class="btn btn-bri mt-5">Postulate</a>
-        </div>-->
+          <div class="vacante-actions">
+          <a href="<?= base_url('postulacion/'.$vacante['id']) ?>" class="btn btn-bri mt-5">Postúlate</a>
+        </div>
         <?php elseif (!session()->get('isLoggedIn')): ?>
-        <!--<div class="vacante-actions">
-        <a href="</?= base_url('vacantes/postulate/'.$vacante['id']) ?>" class="btn btn-bri mt-5">Postúlate</a>
-        </div>-->
+        <div class="vacante-actions">
+        <a href="<?= base_url('postulacion/'.$vacante['id']) ?>" class="btn btn-bri mt-5">Postúlate</a>
+        </div>
         <?php endif; ?>
       <!--<a href="#" class="btn btn-bri mt-5">Postúlate</a>-->
     </div>
