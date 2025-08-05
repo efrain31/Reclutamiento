@@ -101,7 +101,6 @@
         }
     });*/
 
-    document.addEventListener("DOMContentLoaded", function() {
     <?php if (session()->getFlashdata('success')): ?>
             Swal.fire({
                 icon: 'success',
@@ -134,7 +133,6 @@
                 window.location.hash = 'registro';
             });
         <?php endif; ?>
-    });
 
   const togglePassword = document.querySelectorAll(".toggle-password");
   togglePassword.forEach(item => {

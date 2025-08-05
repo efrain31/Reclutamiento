@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Models\VacanteModel;
+use CodeIgniter\Email\Email;
+use Dompdf\Dompdf;
 
 class VacantesController extends BaseController
 {
@@ -26,7 +28,7 @@ class VacantesController extends BaseController
                 $vacantesQuery->groupStart()
                     ->like('LOWER(titulo)', $busqueda)
                     ->orLike('LOWER(salario)', $busqueda)
-                    ->orLike('LOWER(detalles)', $busqueda) // o 'empresa' si tienes ese campo
+                    ->orLike('LOWER(detalles)', $busqueda) 
                     ->groupEnd();
             }
     
@@ -47,7 +49,6 @@ class VacantesController extends BaseController
             
     } catch (\Exception $e) {
         echo 'Error: ' . $e->getMessage();
-       // return view('errors/html/error_500', ['message' => 'Ocurrió un error al cargar las vacantes']);
     }
     }
 
@@ -73,19 +74,6 @@ class VacantesController extends BaseController
         }
 
         $logoName = $this->subirLogo();
-
-        /*$logo = $this->request->getFile('logo');
-        if ($logo->isValid() && !$logo->hasMoved()) {
-            $logoName = $logo->getRandomName();
-            $logo->move('vacantes', $logoName);
-        } else {
-            $logoName = '';
-        }*/
-        // Procesar campos multivalor
-        /*$habilidades = $this->procesarTextoMultiple($this->request->getPost('habilidades'));
-        $requisitos = $this->procesarTextoMultiple($this->request->getPost('requisitos'));
-        $responsabilidades = $this->procesarTextoMultiple($this->request->getPost('responsabilidades'));
-        $prestaciones = $this->procesarTextoMultiple($this->request->getPost('prestaciones'));*/
 
         $this->vacanteModel->save([
              'titulo' => $this->request->getPost('titulo'),
@@ -138,11 +126,6 @@ class VacantesController extends BaseController
         if (!$validation->withRequest($this->request)->run()) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }
-         // Procesar campos multivalor
-    /*$habilidades = $this->procesarTextoMultiple($this->request->getPost('habilidades'));
-    $requisitos = $this->procesarTextoMultiple($this->request->getPost('requisitos'));
-    $responsabilidades = $this->procesarTextoMultiple($this->request->getPost('responsabilidades'));
-    $prestaciones = $this->procesarTextoMultiple($this->request->getPost('prestaciones'));*/
 
     $data = [
         'titulo' => $this->request->getPost('titulo'),
@@ -240,4 +223,162 @@ class VacantesController extends BaseController
     {
         return !empty($texto) ? explode(',', $texto) : [];
     }
+    public function postularse($id) {
+
+    $vacante = $this->vacanteModel->find($id);
+    //print_r($vacante); exit;
+    if (!$vacante) {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException('Vacante no encontrada');
+    }
+    return view('postulacion', ['vacante' => $vacante]);
+    }
+    public function guardar_postulacion()
+    {
+    helper(['form', 'url']);
+    $session = session();
+
+    // Validación
+    $validation = \Config\Services::validation();
+    $validation->setRules([
+        'nombre'    => 'required|min_length[3]',
+        'correo'    => 'required|valid_email',
+        'telefono'  => 'required'
+       // 'cv'        => 'uploaded[cv]|ext_in[cv,pdf,doc,docx]|max_size[cv,2048]'
+    ]);
+
+    if (!$validation->withRequest($this->request)->run()) {
+       // return redirect()->back()->withInput()->with('error', $validation->getErrors());
+        $errores = implode("\n", $validation->getErrors());
+        return redirect()->back()->withInput()->with('error', $errores);
+    }
+
+    // Cargar archivo
+    $file = $this->request->getFile('cv');
+
+    if ($file && $file->isValid() && !$file->hasMoved()) {
+        $newName = $file->getRandomName();
+        $file->move(ROOTPATH . 'public/uploads/cv_postulados', $newName);
+    
+    // Guardar en DB
+    $postulacionModel = new \App\Models\PostulacionModel();
+    
+    $postulacionModel->insert([
+        'id_vacante'  => $this->request->getPost('id_vacante'),
+        'nombre'      => $this->request->getPost('nombre'),
+        'correo'      => $this->request->getPost('correo'),
+        'telefono'    => $this->request->getPost('telefono'),
+        'trabajo'     => $this->request->getPost('trabajo'),
+        'linkedin'    => $this->request->getPost('linkedin'),
+        'portfolio'   => $this->request->getPost('portfolio'),
+        'informacion' => $this->request->getPost('informacion'),
+        'cv'          => $newName,
+        'estatus'     => 'En revision'
+    ]);
+
+    // Enviar correo de confirmación al postulante
+    $email = \Config\Services::email();
+    $email->setFrom('desarrollo@escarh.com', 'Bolsa de Empleo Escarh');
+    $email->setTo($this->request->getPost('correo'));
+    $email->setSubject('¡Postulación recibida!');
+
+    $mensaje = view('emails/postulacion', [
+     'nombre'     => $this->request->getPost('nombre')
+     ]);
+
+try {
+    $email->setMessage($mensaje);
+    $email->setMailType('html');
+
+    if ($email->send()) {
+       return redirect()->to('bolsa_empleo')->with('success', 'Tu postulación fue enviada correctamente. Hemos enviado un correo de confirmación.');
+    } else {
+        log_message('error', 'Error al enviar correo: ' . print_r($email->printDebugger(['headers']), true));
+        return redirect()->to('bolsa_empleo')->with('error', 'Tu postulación fue guardada, pero no se pudo enviar el correo de confirmación.');
+    }
+    } catch (\Exception $e) {
+        log_message('error', 'Excepción al enviar correo: ' . $e->getMessage());
+        return redirect()->to('bolsa_empleo')->with('error', 'Ocurrió un error al enviar el correo.'); //, '#formulario'
+    }
+}
+
+// Si NO subió archivo, redirigimos a crear_cv y guardamos datos en sesión
+$session->set('postulacion_temporal', [
+    'id_vacante'  => $this->request->getPost('id_vacante'),
+    'nombre'      => $this->request->getPost('nombre'),
+    'correo'      => $this->request->getPost('correo'),
+    'telefono'    => $this->request->getPost('telefono'),
+    'trabajo'     => $this->request->getPost('trabajo'),
+    'linkedin'    => $this->request->getPost('linkedin'),
+    'portfolio'   => $this->request->getPost('portfolio'),
+    'informacion' => $this->request->getPost('informacion'),
+    'estatus'     => 'En revision'
+]);
+$session->setFlashdata('info', 'Por favor completa tu CV para finalizar tu postulación.');
+
+return redirect()->to('/crear_cv');
+
+}
+
+public function cv_pdf($id)
+{
+    helper('text');
+
+    $cvModel = new \App\Models\CvModel();
+    $cv = $cvModel->find($id);
+
+    if (!$cv) {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException('CV no encontrado.');
+    }
+
+    $experiencias = json_decode($cv['experiencias'], true);
+    $educaciones  = json_decode($cv['educaciones'], true);
+    $habilidades  = json_decode($cv['habilidades'], true);
+
+
+    $data = [
+        'cv'           => $cv,
+        'experiencias' => $experiencias,
+        'educaciones'  => $educaciones,
+        'habilidades'  => $habilidades
+    ];
+
+    $html = view('admin/ver_postulacion', $data);
+
+    // Genera el PDF con Dompdf
+    $dompdf = new \Dompdf\Dompdf();
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->render();
+
+     return $this->response
+        ->setContentType('application/pdf')
+        ->setBody($dompdf->output());
+
+   }
+public function descargar_postulacion($archivo)
+{
+    $ruta = WRITEPATH . '../public/uploads/cv/' . $archivo;
+
+    if (!file_exists($ruta)) {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException('Archivo no encontrado.');
+    }
+
+    return $this->response->download($ruta, null);
+}
+public function guardar_postulacion_temporal()
+{
+    $session = session();
+    $session->set('postulacion_temporal', [
+        'id_vacante'  => $this->request->getPost('id_vacante'),
+        'nombre'      => $this->request->getPost('nombre'),
+        'correo'      => $this->request->getPost('correo'),
+        'telefono'    => $this->request->getPost('telefono'),
+        'trabajo'     => $this->request->getPost('trabajo'),
+        'linkedin'    => $this->request->getPost('linkedin'),
+        'portfolio'   => $this->request->getPost('portfolio'),
+        'informacion' => $this->request->getPost('informacion'),
+        'estatus'    => 'En revision',
+    ]);
+    return $this->response->setStatusCode(200); // OK
+}
 }

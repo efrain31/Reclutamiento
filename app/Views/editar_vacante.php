@@ -18,7 +18,7 @@
   <h1 class="section-title">Editar Vacante</h1>
 
   <div style="text-align: right;">
-        <a href="javascript:window.history.go(-1);" class="btn btn-link">Atrás</a>
+        <a href="javascript:window.history.go(-1);" class="btn btn-link">← Atrás</a>
   </div>
 
   <h2 class="section-sub">Verifique la información</h2>
