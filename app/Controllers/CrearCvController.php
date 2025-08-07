@@ -163,7 +163,7 @@ class CrearCvController extends Controller
 
     // Paginación manual
     $page = (int)($this->request->getGet('page') ?? 1);
-    $perPage = 15;
+    $perPage = 10;
     $total = count($cvs);
     $offset = ($page - 1) * $perPage;
     $cvsPaginados = array_slice($cvs, $offset, $perPage);
@@ -173,8 +173,9 @@ class CrearCvController extends Controller
     $pager->makeLinks($page, $perPage, $total, 'bootstrap_pagination'); // usa plantilla bootstrap
 
        return view('admin/listado_cv', [
-    'cvs' => $cvsPaginados,
-    'pager' => $pager
+           'cvs' => $cvsPaginados,
+            'pager' => $pager,
+            'totalCvs' => $total
    ]);
     }
 

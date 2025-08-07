@@ -14,8 +14,8 @@
                 <button id="menuToggle">&#9776;</button>
             </li>
             <?php if (!session()->get('isLoggedIn')): ?>  <!-- Mostrar si el usuario NO ha iniciado sesión -->
-            <li class="menu-item hidden <?= (uri_string() == 'inicio') ? 'active' : '' ?>">
-                <a href="<?= base_url('inicio') ?>" >Inicio</a>
+            <li class="menu-item hidden <?= (uri_string() == '/') ? 'active' : '' ?>">
+                <a href="<?= base_url('/') ?>" >Inicio</a>
             </li>
             <li class="menu-item hidden <?= (uri_string() == 'nosotros') ? 'active' : '' ?>">
                 <a href="<?= base_url('nosotros') ?>" id="btnNosotros">Nosotros</a>

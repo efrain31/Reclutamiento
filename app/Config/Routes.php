@@ -10,7 +10,7 @@ use App\Controllers\BolsaEmpleoController;
  * @var RouteCollection $routes
  */
 //pagina de inicio
-$routes->get('/inicio', 'Inicios::index');
+$routes->get('/', 'Inicios::index');
 
 //registros
 $routes->get('/registro', 'Registros::registros');

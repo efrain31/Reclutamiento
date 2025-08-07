@@ -272,7 +272,7 @@
                 confirmButtonText: 'Aceptar'
             }).then(() => {
                 // Redirigir al formulario si hace falta
-                window.location.hash = 'inicio';
+                window.location.hash = '/';
             });
         <?php elseif (session()->getFlashdata('error')): ?>
             Swal.fire({
@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bolsaContainer.scrollIntoView({ behavior: "smooth" }); // Hace scroll suave hacia la sección
     });*/
 
-    const menuInicio = document.querySelector("a[href='<?= base_url('inicio') ?>']");
+    const menuInicio = document.querySelector("a[href='<?= base_url('/') ?>']");
     const inicioContainer = document.querySelector(".inicio-container");
 
     menuInicio.addEventListener("click", function (event) {

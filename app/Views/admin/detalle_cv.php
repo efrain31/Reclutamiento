@@ -138,7 +138,7 @@
     <form action="<?= base_url('cambiar_estatus/' . $cv['id']) ?>" method="post">
         <?= csrf_field() ?>
       <select name="nuevo_estatus" class="form-select mb-2">
-        <option value="En revision" <?= ($cv['estatus'] == 'En revision') ? 'selected' : '' ?>>En revisión</option>
+        <option value="En revision" <?= ($cv['estatus'] == 'En revision') ? 'selected' : '' ?>>En revision</option>
         <option value="Citado" <?= ($cv['estatus'] == 'Citado') ? 'selected' : '' ?>>Citado</option>
         <option value="Entrevista" <?= ($cv['estatus'] == 'Entrevista') ? 'selected' : '' ?>>Entrevista</option>
         <option value="No aceptado" <?= ($cv['estatus'] == 'No aceptado') ? 'selected' : '' ?>>No aceptado</option>

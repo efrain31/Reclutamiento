@@ -67,11 +67,11 @@ class Registros extends Controller
         return redirect()->to('iniciar_session')->with('success', 'Registro exitoso. Revisa tu correo.');
     } else {
         log_message('error', 'Error al enviar correo: ' . print_r($email->printDebugger(['headers']), true));
-        return redirect()->to('inicio')->with('error', 'No se pudo enviar el correo.');
+        return redirect()->to('/')->with('error', 'No se pudo enviar el correo.');
     }
     } catch (\Exception $e) {
     log_message('error', 'Excepción al enviar correo: ' . $e->getMessage());
-    return redirect()->to('inicio')->with('error', 'Ocurrió un error al enviar el correo.'); //, '#formulario'
+    return redirect()->to('/')->with('error', 'Ocurrió un error al enviar el correo.'); //, '#formulario'
     }   
     }
     
@@ -149,7 +149,7 @@ public function store2()
 
     $email = \Config\Services::email();
     $email->setFrom('desarrollo@escarh.com', 'Escarh');
-    $email->setTo('brizeidarosales@geovoy.com, raquel_magana@escarh.com'); //
+    $email->setTo('raquel_magana@escarh.com'); //
     $email->setSubject('Nueva Solicitud de Servicios');
 
     $mensaje = "
@@ -174,14 +174,14 @@ public function store2()
 
         if ($email->send()) {
             $reclutamientoModel->insert($data);
-            return redirect()->to('inicio')->with('success', 'El correo fue enviado correctamente.');
+            return redirect()->to('/')->with('success', 'El correo fue enviado correctamente.');
         } else {
             log_message('error', 'Error al enviar correo: ' . print_r($email->printDebugger(['headers']), true));
-            return redirect()->to('inicio')->with('error', 'No se pudo enviar el correo.');
+            return redirect()->to('/')->with('error', 'No se pudo enviar el correo.');
         }
     } catch (\Exception $e) {
         log_message('error', 'Excepción al enviar correo: ' . $e->getMessage());
-        return redirect()->to('inicio')->with('error', 'Ocurrió un error al enviar el correo.'); //, '#formulario'
+        return redirect()->to('/')->with('error', 'Ocurrió un error al enviar el correo.'); //, '#formulario'
     }
     
     }
