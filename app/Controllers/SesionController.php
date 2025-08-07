@@ -34,11 +34,11 @@ class SesionController extends Controller
             if ($this->request->getPost('recuerdame')) {
                     setcookie('correo', $correo, time() + (86400 * 30), "/"); // Guarda el correo por 30 días
             }
-                 // Redireccionar según rol   /admin/dashboard
+                 // Redireccionar según rol   /admin/usuario
             if ($usuario['id_rol'] == 1) {
-                return redirect()->to('/bolsa_empleo')->with('success', 'Bienvenido administrador');
+                return redirect()->to('/bolsa_empleo');
             } else {
-                return redirect()->to('/bolsa_empleo')->with('success', 'Inicio de sesión exitoso');
+                return redirect()->to('/bolsa_empleo'); //->with('success', 'Inicio de sesión exitoso')
             }
             } else {
                 return redirect()->to('/iniciar_session')->with('error', 'Contraseña incorrecta');
