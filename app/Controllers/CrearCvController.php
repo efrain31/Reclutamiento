@@ -66,7 +66,6 @@ class CrearCvController extends Controller
         'experiencias'  => json_encode($experiencias),
         'educaciones'   => json_encode($educaciones)
     ]);
-
     // Si existe una postulación temporal, la completamos con el ID del CV creado
     if ($session->has('postulacion_temporal')) {
         $dataPostulacion = $session->get('postulacion_temporal');
@@ -74,10 +73,37 @@ class CrearCvController extends Controller
         $dataPostulacion['cv'] = null; // No subió PDF
 
         $postulacionModel->insert($dataPostulacion);
-        $session->remove('postulacion_temporal');
-    }
+        
+        // Enviar correo de confirmación al postulante
+        $email = \Config\Services::email();
+        $email->setFrom('desarrollo@escarh.com', 'Bolsa de Empleo Escarh');
+        $email->setTo($dataPostulacion['correo']);
+        $email->setSubject('¡Postulación recibida!');
+        $mensaje = view('emails/postulacion', [
+        'nombre' => $dataPostulacion['nombre']
+        ]);
 
-        return redirect()->to('bolsa_empleo')->with('success', 'CV creado correctamente.');
+    try {
+    $email->setMessage($mensaje);
+    $email->setMailType('html');
+
+    if ($email->send()) {
+        return redirect()->to('bolsa_empleo')->with('success', 'CV creado y postulación enviada con éxito. Hemos enviado un correo de confirmación.');
+        //$mensajeFlash = 'CV creado y postulación enviada con éxito. Hemos enviado un correo de confirmación.';
+    } else {
+        log_message('error', 'Error al enviar correo desde crear CV: ' . print_r($email->printDebugger(['headers']), true));
+        return redirect()->to('bolsa_empleo')->with('error', 'CV creado y postulación guardada, pero no se pudo enviar el correo de confirmación.');
+    }
+    } catch (\Exception $e) {
+    log_message('error', 'Excepción al enviar correo desde crear CV: ' . $e->getMessage());
+    return redirect()->to('bolsa_empleo')->with('error', 'CV creado y postulación guardada, pero ocurrió un error al enviar el correo.');
+    }
+    // Limpiar sesión temporal
+    $session->remove('postulacion_temporal');
+    }
+    // Mensaje cuando solo se creó el CV
+    return redirect()->to('bolsa_empleo')->with('success', 'CV creado correctamente.');
+    
     }
     public function listado_cv()
     {
