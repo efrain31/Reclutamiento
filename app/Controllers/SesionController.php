@@ -51,7 +51,7 @@ class SesionController extends Controller
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/inicio')->with('success', 'Sesión cerrada');
+        return redirect()->to('/')->with('success', 'Sesión cerrada');
     }
 
     public function googleLogin()

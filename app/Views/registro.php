@@ -79,27 +79,11 @@
             if (btnNosotros) {
                 btnNosotros.addEventListener("click", function(event) {
                     event.preventDefault(); // Evita la navegación normal
-                    window.location.href = "<?= base_url('inicio') ?>#nosotros"; // Redirige a la sección "Nosotros" en inicio
+                    window.location.href = "<?= base_url('/') ?>#nosotros"; // Redirige a la sección "Nosotros" en inicio
                 });
             }
         }
     });
-
-   /* document.addEventListener("DOMContentLoaded", function() {
-        // Detectar si estamos en la página de Registro
-        let urlActual = window.location.pathname;
-        if (urlActual.includes("registro")) {
-            // Capturar el botón "Nosotros"
-            let btnBolsa = document.getElementById("btnBolsa");
-
-            if (btnBolsa) {
-                btnBolsa.addEventListener("click", function(event) {
-                    event.preventDefault(); // Evita la navegación normal
-                    window.location.href = "</?= base_url('inicio') ?>#bolsas"; // Redirige a la sección "bolsa" en inicio
-                });
-            }
-        }
-    });*/
 
     <?php if (session()->getFlashdata('success')): ?>
             Swal.fire({

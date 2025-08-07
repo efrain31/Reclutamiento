@@ -82,7 +82,7 @@
             if (btnNosotros) {
                 btnNosotros.addEventListener("click", function(event) {
                     event.preventDefault(); // Evita la navegación normal
-                    window.location.href = "<?= base_url('inicio') ?>#nosotros"; // Redirige a la sección "Nosotros" en inicio
+                    window.location.href = "<?= base_url('/') ?>#nosotros"; // Redirige a la sección "Nosotros" en inicio
                 });
             }
         }

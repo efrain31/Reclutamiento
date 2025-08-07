@@ -48,6 +48,23 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <script>
+
+   document.addEventListener("DOMContentLoaded", function() {
+        // Detectar si estamos en la página de Registro
+        let urlActual = window.location.pathname;
+        if (urlActual.includes("bolsa_empleo")) {
+            // Capturar el botón "Nosotros"
+            let btnNosotros = document.getElementById("btnNosotros");
+
+            if (btnNosotros) {
+                btnNosotros.addEventListener("click", function(event) {
+                    event.preventDefault(); // Evita la navegación normal
+                    window.location.href = "<?= base_url('/') ?>#nosotros"; // Redirige a la sección "bolsa" en inicio
+                });
+            }
+        }
+    });
+
 function cargarVacantes(busqueda = '') {
     $.ajax({
         url: "<?= base_url('bolsa_empleo') ?>",

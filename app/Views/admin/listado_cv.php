@@ -19,14 +19,14 @@
   </div>
 
   <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
-    <h4 class="mb-2">Total Aplicantes: <?= count($cvs) ?></h4>
+    <h4 class="mb-2">Total Aplicantes: <?= $totalCvs ?></h4>
 
   <div class="search-tools">
       <input type="text" id="searchInput" class="form-control" placeholder="Buscar Aplicantes..." style="min-width: 230px;">
 
       <select id="filtroEstatus" class="form-select" style="min-width: 160px;">
         <option value="">Filtrar por estatus</option>
-        <option value="En revision">En revisión</option>
+        <option value="En revision">En revision</option>
         <option value="Citado">Citado</option>
         <option value="Entrevista">Entrevista</option>
         <option value="No aceptado">No aceptado</option>
@@ -72,7 +72,18 @@
                 </ul>
               </div>
             </td>
-            <td class="text-center"><?= esc(date("d/m/Y", strtotime($cv['created_at']))) ?></td>
+            <td class="text-center">
+               <?php
+            $meses = [1=>'Ene', 2=>'Feb', 3=>'Mar', 4=>'Abr', 5=>'May', 6=>'Jun', 7=>'Jul', 8=>'Agos', 9=>'Sep', 10=>'Oct', 11=>'Nov', 12=>'Dic'];
+            $fecha = strtotime($cv['created_at']);
+            $dia = date('d', $fecha);
+            $mes = $meses[(int)date('m', $fecha)];
+            $anio = date('Y', $fecha);
+            echo "$dia $mes, $anio";
+            ?>
+            <!--<-?= esc(date('j F, Y', strtotime($cv['created_at']))) ?>-->
+            <!--<-?= date('j F, Y', strtotime($cv['created_at'])) ?>   d/m/Y-->
+            </td>
             <td class="text-center">
               <a href="<?= base_url('detalle_cv/'.$cv['id']) ?>" class="btn btn-sm btn-primary mb-1">
                 <i class="bi bi-eye"></i> Ver
@@ -117,7 +128,9 @@
   document.getElementById('filtroEstatus').addEventListener('change', function () {
     let estatus = this.value.toLowerCase();
     document.querySelectorAll('#tablaCvs tr').forEach(row => {
-      let estado = row.cells[1].textContent.toLowerCase();
+      console.log(row.cells[2]?.innerText);
+      let boton = row.cells[2].querySelector('.dropdown-toggle');
+      let estado = boton ? boton.innerText.trim().toLowerCase() : '';
       row.style.display = estatus === '' || estado.includes(estatus) ? '' : 'none';
     });
   });
