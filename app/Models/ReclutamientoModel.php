@@ -7,6 +7,7 @@ class ReclutamientoModel extends Model
 {
     protected $table = 'reclutamiento';
     protected $primaryKey = 'id';
+    protected $useTimestamps = true;
     protected $allowedFields = [
         'nombre', 'correo', 'celular','empresa', 'municipio', 'servicio',
         'adicional', 'fecha','created_at', 'updated_at'

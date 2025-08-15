@@ -41,7 +41,7 @@
                 <li><a href="<?= base_url('listado_cv') ?>">Postulaciones</a></li>
                 <li><a href="<?= base_url('crear_vacante') ?>">Crear Vacante</a></li>
             <?php elseif (session()->get('isLoggedIn') && session()->get('id_rol') === '2'): ?>
-                <!--<li><a href="<-?= base_url('perfil') ?>">Mi perfil&nbsp;</a></li>-->
+                <li><a href="<?= base_url('perfil') ?>">Mi perfil&nbsp;</a></li>
                 <li><a href="<?= base_url('vista_cv') ?>">Crear CV</a></li>
                 <!--<li><a href="<-?= base_url('vacantes-postuladas') ?>">Vacantes postuladas</a></li>-->
             <?php endif; ?>

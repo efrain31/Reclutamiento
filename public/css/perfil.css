@@ -1,0 +1,23 @@
+.mt-5 { margin-top: 7rem !important;}
+ /* Mejora estética para imitar el estilo de la imagen */
+    .form-label {
+        font-weight: 500;
+        color: #555;
+    }
+    .form-control, .form-select {
+        border-radius: 8px;
+        padding: 0.6rem;
+    }
+    .form-check-input:checked {
+        background-color: #4f46e5;
+        border-color: #4f46e5;
+    }
+    .text-primary {
+        color: rgb(0 0 0) !important;
+    }
+    .perfil { background-color: #282977; border: none;}
+    @media (max-width: 576px) {
+        .d-flex.gap-4 {
+            flex-direction: column;
+        }
+    }

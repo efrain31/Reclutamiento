@@ -14,6 +14,9 @@
 <?= $this->include('templates/header') ?> 
 
 <div class="container text-center my-5">
+  <div style="text-align: right;">
+        <a href="javascript:window.history.go(-1);" class="btn btn-link">← Atrás</a>
+  </div>
     <div class="cv">
         <h2 class="cv-titulo">¿No tienes CV?</h2>
         <p class="cv-subtitulo">¡Crea el tuyo ahora!</p>

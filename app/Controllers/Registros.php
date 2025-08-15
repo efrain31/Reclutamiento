@@ -8,6 +8,25 @@ use CodeIgniter\Email\Email;
 
 class Registros extends Controller
 {
+     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
+    {
+        // Siempre llamar al initController padre
+        parent::initController($request, $response, $logger);
+
+        helper('url');
+
+        // Evitar cache del navegador
+        $this->response->setHeader("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0");
+        $this->response->setHeader("Cache-Control", "post-check=0, pre-check=0", false);
+        $this->response->setHeader("Pragma", "no-cache");
+
+        // Validar sesión
+        $session = session();
+        if (!$session->get('isLoggedIn')) {
+            return redirect()->to(base_url('iniciar_session'))->send();
+            exit;
+        }
+    }
     public function registros()
     {
         return view('registro');
@@ -29,6 +48,7 @@ class Registros extends Controller
         }
         
         $registrosModel = new RegistrosModel();
+        $perfilModel = new \App\Models\PerfilUsuarioModel();
         date_default_timezone_set("America/Mexico_City");
 
         $correo_usuario = $this->request->getPost('correo');
@@ -63,7 +83,8 @@ class Registros extends Controller
     $email->setMailType('html');
 
     if ($email->send()) {
-        $registrosModel->insert($data);  
+        $id_usuario = $registrosModel->insert($data);  
+        $perfilModel->insert(['usuario_id' => $id_usuario]);
         return redirect()->to('iniciar_session')->with('success', 'Registro exitoso. Revisa tu correo.');
     } else {
         log_message('error', 'Error al enviar correo: ' . print_r($email->printDebugger(['headers']), true));
