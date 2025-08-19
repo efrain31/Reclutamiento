@@ -31,7 +31,6 @@ $routes->get('listado_cv', 'CrearCvController::listado_cv');
 $routes->get('detalle_cv/(:num)', 'CrearCvController::detalle_cv/$1');
 $routes->get('exportar_cv/(:num)', 'CrearCvController::exportar_cv/$1');
 $routes->post('cambiar_estatus/(:num)', 'CrearCvController::cambiar_estatus/$1');
-//$routes->get('cambiar_estatus/(:num)/(:any)', 'CrearCvController::cambiar_estatus/$1/$2');
 
 //Recuperar contraseña
 $routes->get('recuperar-contrasena', 'RecuperarContrasenaController::recuperarContrasena');
@@ -45,14 +44,17 @@ $routes->get('/crear_vacante', 'VacantesController::crear');
 $routes->post('/vacantes/guardar', 'VacantesController::guardar');
 $routes->get('/editar_vacante/(:num)', 'VacantesController::editar/$1');
 $routes->post('/vacantes/actualizar/(:num)', 'VacantesController::actualizar/$1');
-//$routes->post('/vacantes/eliminar', 'VacantesController::eliminar');
-//$routes->post('/vacantes/cerrar', 'VacantesController::cerrar');
 $routes->get('ver_vacante/(:num)', 'VacantesController::ver/$1');
 
 //postulaciones
 $routes->get('/postulacion/(:num)', 'VacantesController::postularse/$1');
 $routes->post('guardar_postulacion', 'VacantesController::guardar_postulacion');
-//$routes->get('admin/ver_postulacion/(:num)', 'VacantesController::ver_postulacion/$1');
-//$routes->get('admin/cv_pdf/(:num)', 'VacantesController::cv_pdf/$1');
 $routes->get('descargar_postulacion/(:num)', 'VacantesController::descargar_postulacion/$1');
 $routes->post('guardar_postulacion_temporal', 'VacantesController::guardar_postulacion_temporal');
+
+//perfil usuario
+$routes->get('perfil', 'PerfilController::index');
+$routes->get('perfil/ver/(:num)', 'PerfilController::ver/$1');
+$routes->get('perfil/crear', 'PerfilController::crear');
+$routes->post('perfil/guardar', 'PerfilController::guardar');
+$routes->post('perfil/actualizar', 'PerfilController::actualizar');
