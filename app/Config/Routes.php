@@ -24,6 +24,9 @@ $routes->get('/logout', 'SesionController::logout');
 //$routes->get('/auth/google', 'SesionController::googleLogin');
 
 // crear cv
+$routes->get('bolsa_empleo', 'VacantesController::bolsa_emp');
+
+$routes->group('', ['filter' => 'auth'], function($routes) {
 $routes->get('/vista_cv', 'CrearCvController::cv');
 $routes->get('/crear_cv', 'CrearCvController::crear_cv');
 $routes->post('/guardar_cv', 'CrearCvController::guardar_cv');
@@ -39,7 +42,6 @@ $routes->get('reestablecer-contrasena', 'RecuperarContrasenaController::restable
 $routes->post('actualizar-contrasena', 'RecuperarContrasenaController::actualizarContrasena');
 
 // crear vacante
-$routes->get('bolsa_empleo', 'VacantesController::bolsa_emp');
 $routes->get('/crear_vacante', 'VacantesController::crear');
 $routes->post('/vacantes/guardar', 'VacantesController::guardar');
 $routes->get('/editar_vacante/(:num)', 'VacantesController::editar/$1');
@@ -58,3 +60,4 @@ $routes->get('perfil/ver/(:num)', 'PerfilController::ver/$1');
 $routes->get('perfil/crear', 'PerfilController::crear');
 $routes->post('perfil/guardar', 'PerfilController::guardar');
 $routes->post('perfil/actualizar', 'PerfilController::actualizar');
+});
