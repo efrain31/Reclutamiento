@@ -7,7 +7,7 @@ use CodeIgniter\Controller;
 
 class PerfilController extends Controller
 {
-    public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
+    /*public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
         // Siempre llamar al initController padre
         parent::initController($request, $response, $logger);
@@ -22,10 +22,10 @@ class PerfilController extends Controller
         // Validar sesión
         $session = session();
         if (!$session->get('isLoggedIn')) {
-            return redirect()->to(base_url('iniciar_session'))->send();
+            redirect()->to(base_url('iniciar_session'))->send();
             exit;
         }
-    }
+    }*/
     public function index()
     {
     $session = session();
