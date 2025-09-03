@@ -33,7 +33,7 @@ class PerfilController extends Controller
  
     $builder = $db->table('registros r');
     $builder->select('r.*, p.direccion, p.fecha_nacimiento, p.tipo_cuenta, p.genero');
-    $builder->join('perfil_usuario p', 'p.usuario_id = r.id', 'left');
+    $builder->join('perfil_usuario p', 'p.usuario_idcv = r.id', 'left');
     $builder->where('r.id', $session->get('usuario_id'));
 
     $data['usuario'] = $builder->get()->getRowArray() ?? [
@@ -69,7 +69,7 @@ class PerfilController extends Controller
     
      // Datos del perfil
     $perfilData = [
-        'usuario_id'       => $usuarioId,
+        'usuario_idcv'       => $usuarioId,
         'direccion'        => $this->request->getPost('direccion'),
         'fecha_nacimiento' => $this->request->getPost('fecha_nacimiento'),
         'genero'           => $this->request->getPost('genero'),
@@ -77,7 +77,7 @@ class PerfilController extends Controller
     ];
 
     // Verificar si ya tiene perfil
-    $existePerfil = $perfilModel->where('usuario_id', $usuarioId)->first();
+    $existePerfil = $perfilModel->where('usuario_idcv', $usuarioId)->first();
 
     if ($existePerfil) {
         // Actualizar perfil existente

@@ -65,7 +65,7 @@ class Registros extends Controller
 
     if ($email->send()) {
         $id_usuario = $registrosModel->insert($data);  
-        $perfilModel->insert(['usuario_id' => $id_usuario]);
+        $perfilModel->insert(['usuario_idcv' => $id_usuario]);
         return redirect()->to('iniciar_session')->with('success', 'Registro exitoso. Revisa tu correo.');
     } else {
         log_message('error', 'Error al enviar correo: ' . print_r($email->printDebugger(['headers']), true));
