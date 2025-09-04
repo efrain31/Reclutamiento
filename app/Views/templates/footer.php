@@ -25,7 +25,7 @@
  
     <div class="footer-section"> <!-- Sección Central - Información -->
             <h3>Contacto</h3>
-            <p><i class="fas fa-envelope"></i><a href="mailto:raquel_magana@escarh.com"> raquel_magana@escarh.com</a></p>
+            <p><i class="fas fa-envelope"></i><a href="mailto:recepcion@escarh-busmen.com"> recepcion@escarh-busmen.com</a></p>
             <p><i class="fas fa-phone"></i> <a href="tel:+523312949160">33 1294 9160</a>-<a href="tel:+523338822200">33 3882 2200</a></p>
             <!--<p>&copy; </?= date('Y') ?> Escarh</p>-->
     </div>
@@ -39,7 +39,7 @@
     </div>
     </div>
     <div class= "version">
-    &copy; Desarrollo GEOVOY <span id="anio"></span> <span class="d-none d-sm-inline-block"> - V.1.0.23 </span>
+    &copy; Desarrollo GEOVOY <span id="anio"></span> <span class="d-none d-sm-inline-block"> - V.1.0.24 </span>
    </div>
 </footer>
 <script>
