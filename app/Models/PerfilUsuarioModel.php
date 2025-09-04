@@ -9,7 +9,7 @@ class PerfilUsuarioModel extends Model
     protected $primaryKey = 'id';
     protected $useTimestamps = true;
     protected $allowedFields = [
-         'usuario_id', 'fecha_nacimiento', 'genero', 'tipo_cuenta', 'direccion', 'created_at', 'updated_at'
+         'usuario_idcv', 'fecha_nacimiento', 'genero', 'tipo_cuenta', 'direccion', 'created_at', 'updated_at'
     ];
     protected $returnType = 'array';
 }

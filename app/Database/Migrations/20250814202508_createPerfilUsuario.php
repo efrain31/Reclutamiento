@@ -9,7 +9,7 @@ class CreatePerfilUsuario extends Migration
     {
         $this->forge->addField([
             'id'                => ['type'=> 'INT', 'constraint' => 11,'unsigned' => true, 'auto_increment' => true],
-            'usuario_id'        => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true,],
+            'usuario_idcv'        => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true,],
             'direccion'         => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
             'fecha_nacimiento'  => ['type' => 'DATE', 'null' => true],
             'genero'            => ['type' => 'VARCHAR', 'constraint' => 10, 'null' => true],
@@ -19,7 +19,7 @@ class CreatePerfilUsuario extends Migration
         ]);
 
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('usuario_id', 'registros', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('usuario_idcv', 'registros', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('perfil_usuario');
     }
 
