@@ -28,7 +28,7 @@ class Database extends Config
         'DSN'        => '',
          'hostname'   => 'localhost',
          'username'   => 'postgres',
-         'password'   => '1234',
+         'password'   => '134679',
          'database'   => 'escarh',
          'schema'     => 'public',
          'DBDriver'   => 'Postgre',
@@ -190,7 +190,7 @@ class Database extends Config
         'username'    => 'postgres',
         'password'    => '1234',
         'database'    => 'escarh',
-        'DBDriver'    => 'Postgre',
+        'DBDriver'    => 'PostgreSQL',
         'DBPrefix'    => '',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
         'pConnect'    => false,
         'DBDebug'     => true,

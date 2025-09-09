@@ -17,8 +17,9 @@
 <div class="container my-5">
   <h2 class="section-title">Nueva Vacante</h2>
   
-  <div style="text-align: right;">
-        <a href="javascript:window.history.go(-1);" class="btn btn-link">← Atrás</a>
+   <div style="text-align: right;">
+  <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a>
+
   </div>
 
   <h2 class="section-sub">Llena la información</h2>
@@ -156,3 +157,17 @@
       padding: 60px;
     }
   </style>
+  <style>
+.back-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #282977;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+.back-button:hover {
+    background-color: #150461ff;
+}
+</style>

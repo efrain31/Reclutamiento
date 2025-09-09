@@ -14,7 +14,7 @@
 
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <a href="javascript:window.history.go(-1);" class="btn btn-link">← Atrás</a>
+  <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a>
     <a href="<?= base_url('crear_vacante') ?>" class="btn btn-primary subir">+ Subir nuevo trabajo</a>
   </div>
 
@@ -138,3 +138,18 @@
 <?= $this->include('templates/footer') ?>
 </body>
 </html>
+
+<style>
+.back-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #282977;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+.back-button:hover {
+    background-color: #150461ff;
+}
+</style>

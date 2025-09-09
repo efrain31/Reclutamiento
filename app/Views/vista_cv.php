@@ -12,11 +12,11 @@
 
 <body>
 <?= $this->include('templates/header') ?> 
-
+<br><br><br><br><br>
 <div class="container text-center my-5">
-  <div style="text-align: right;">
-        <a href="javascript:window.history.go(-1);" class="btn btn-link">← Atrás</a>
-  </div>
+ <div style="text-align: right;">
+  <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a>
+</div>
     <div class="cv">
         <h2 class="cv-titulo">¿No tienes CV?</h2>
         <p class="cv-subtitulo">¡Crea el tuyo ahora!</p>
@@ -28,3 +28,20 @@
 </html>
 <!-- Aquí podrías agregar la lista de vacantes, filtros, etc. -->
 <?= $this->include('templates/footer') ?> <!-- Llama al footer -->
+<style>
+.back-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #282977;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+.back-button:hover {
+    background-color: #150461ff;
+}
+</style>
+
+
+

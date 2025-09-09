@@ -7,6 +7,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"> 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
    <link rel="stylesheet" href="<?= base_url('../css/perfil.css') ?>">
 </head>
 
@@ -14,9 +17,10 @@
 <?= $this->include('templates/header') ?> 
 
 <div class="container mt-5">
-    <div style="text-align: right;">
-        <a href="javascript:window.history.go(-1);" class="btn btn-link">← Atrás</a>
-  </div>
+   <div style="text-align: right;">
+  <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a>
+</div>
+
     <h5 class="fw-bold mb-1">Mi perfil</h5><hr>
     <p class="text-muted mb-4">Esta es tu información personal, la puedes editar cuando gustes</p><hr>
 
@@ -85,6 +89,20 @@
 </body>
 </html>
 
+<style>
+.back-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #282977;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+.back-button:hover {
+    background-color: #150461ff;
+}
+</style>
 
 
 

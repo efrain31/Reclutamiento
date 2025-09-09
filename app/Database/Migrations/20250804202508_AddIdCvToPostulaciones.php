@@ -1,4 +1,6 @@
-<?php namespace App\Database\Migrations;
+<?php
+
+namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
@@ -10,7 +12,7 @@ class AddIdCvToPostulaciones extends Migration
             'id_cv' => [
                 'type'       => 'INT',
                 'constraint' => 11,
-                'default'    => null,
+                'null'       => true,
                 'after'      => 'id'
             ]
         ]);
@@ -21,7 +23,8 @@ class AddIdCvToPostulaciones extends Migration
     public function down()
     {
         // Eliminar la clave foránea antes de borrar la columna
-        $this->db->query("ALTER TABLE postulaciones DROP FOREIGN KEY fk_postulacion_cv");
+        $this->db->query('ALTER TABLE postulaciones DROP CONSTRAINT fk_postulacion_cv');
+
 
         $this->forge->dropColumn('postulaciones', 'id_cv');
     }
