@@ -7,6 +7,7 @@ use App\Models\ReclutamientoModel;
 use CodeIgniter\Controller;
 use CodeIgniter\Email\Email;
 
+
 class Registros extends Controller
 {
     public function registros()
