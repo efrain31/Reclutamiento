@@ -1,4 +1,17 @@
 # Escarh2.0
+comands start up app
+-escarh proyect
+-dowloand repo de git 
+-intall composer install
+-crear bd en (pgadmin) posgrest  llamara a la bd  escarh
+-inicia server con: php spark serve (usar spark por el codeliner)
+-migrate seeders : php spark db:seed RegistrosSeeder
+ en xammp > apache > php.ini buscar y habilitar sql (quitando el ;)
+
+EN DATABASE.PHP CAMBIAR TU CONTRASENA POR LA QUE PONES EN EL POSGREST(pgadmin) AL CREAR LA BD
+
+- migrations: php migrate
+
 
 
 
