@@ -14,7 +14,7 @@
 
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
-  <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a>
+  <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a> 
     <a href="<?= base_url('crear_vacante') ?>" class="btn btn-primary subir">+ Subir nuevo trabajo</a>
   </div>
 

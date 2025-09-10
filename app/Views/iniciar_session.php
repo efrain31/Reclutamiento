@@ -38,7 +38,7 @@
                     <hr>
                     <form action="<?= base_url('/sesion/stores') ?>" method="post">
                         <div class="mb-3">
-                            <label class="form-label">Correo Electrónico</label>
+                            <label class="form-label">Correo Electrónico</label>  
                             <input type="email" class="form-control" name="correo" placeholder="Escribe tu correo" required>
                         </div>
                         <div class="mb-3 position-relative">
@@ -158,13 +158,13 @@
 
         .img-fluid {
             max-width: 70%;
-            margin-top: 50px; 
+            margin-top:  50px; 
         }
 
         .login-box {
             width: 90%;
             margin: auto;
-            margin-top: 20px;
+            margin-top:  20px;
         }
     }
 </style>

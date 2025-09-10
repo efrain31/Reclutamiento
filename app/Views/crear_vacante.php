@@ -20,7 +20,7 @@
   <h2 class="section-title">Nueva Vacante</h2>
   
    <div style="text-align: right;">
-  <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a>
+  <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a>  
 
   </div>
 

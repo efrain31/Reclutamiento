@@ -30,8 +30,6 @@
 <?= $this->include('templates/footer') ?> <!-- Llama al footer -->
 <style>
 
-
-
 .back-button {
     display: inline-block;
     padding: 0.5rem 1rem;

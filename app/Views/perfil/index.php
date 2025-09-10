@@ -16,7 +16,7 @@
 
 <div class="container mt-5">
    <div style="text-align: right;">
-  <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a>
+  <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a>    
 </div>
 
     <h5 class="fw-bold mb-1">Mi perfil</h5><hr>

@@ -18,7 +18,7 @@
   <div class="container mt-5 mb-5">
     <div class="text-center mb-4">
       <div style="text-align: right;">
-        <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a>
+        <a href="javascript:window.history.go(-1);" class="back-button">← Atrás</a> 
       </div>
       <h2 class="fw-bold">Crea tu CV</h2>
       <p class="text-muted">Completa tu CV para que los empleadores te encuentren fácilmente</p>

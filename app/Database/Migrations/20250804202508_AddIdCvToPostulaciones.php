@@ -14,7 +14,7 @@ class AddIdCvToPostulaciones extends Migration
             'id_cv' => [
                 'type'       => 'INT',
                 'constraint' => 11,
-                'null'       => true,
+                'null'       => true, 
                 'after'      => 'id'
             ]
         ]);

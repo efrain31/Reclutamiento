@@ -452,8 +452,6 @@
     });
 </script>
 
-
-
 <script>
 const correoInput = document.getElementById('correo');
 const errorCorreo = document.getElementById('errorCorreo');
