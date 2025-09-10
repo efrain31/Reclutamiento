@@ -39,7 +39,7 @@
     </div>
     </div>
     <div class= "version">
-    &copy; Desarrollo GEOVOY <span id="anio"></span> <span class="d-none d-sm-inline-block"> - V.1.0.26 </span>
+    &copy; Desarrollo GEOVOY <span id="anio"></span> <span class="d-none d-sm-inline-block"> - V.1.0.27 </span>
    </div>
 </footer>
 <script>

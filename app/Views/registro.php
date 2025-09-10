@@ -33,19 +33,19 @@
                             <div class="col-md-6">
                                 <label class="form-label">Apellido</label>
                                 <input type="text" class="form-control" name="apellido" placeholder="Escriba su apellido" required id="apellido">
-                                <small id="errorApellido" style="color:red; display:none;">Solo se permiten letras.</small>
+                                <small id="errorApellido" style="color:red; display:none;">Solo se permiten letras .</small>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="form-label">Correo</label>
                                 <input type="email" class="form-control" name="correo" placeholder="Escriba su correo" required id="correo">
-                                <small id="errorCorreo" style="color:red; display:none;">Correo no válido. Debe contener @ y un dominio válido (ej: .com, .mx).</small>
+                                <small id="errorCorreo" style="color:red; display:none;">Correo no válido. Debe contener @ y un dominio válido (ej: .com, .mx) .</small>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Celular</label>
                                 <input type="tel" class="form-control" name="celular" placeholder="10 dígitos" required id="celular">
-                                <small id="errorCelular" style="color:red; display:none;">Ingrese solo 10 números.</small>
+                                <small id="errorCelular" style="color:red; display:none;">Ingrese solo 10 números .</small>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -226,8 +226,6 @@
         }
     });
 </script>
-
-
 
 <script>
 const correoInput = document.getElementById('correo');
