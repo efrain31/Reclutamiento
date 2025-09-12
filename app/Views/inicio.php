@@ -21,7 +21,7 @@
         <div class="info"> <!-- Sección derecha: información -->
             <h1>Garantizamos talento en tiempo récord para que tu empresa nunca se detenga.</h1>
             <p>
-                Somos la agencia de reclutamiento más rápida y eficiente, con más de 29 años de experiencia conectando empresas con el
+                Somos la agencia de reclutamiento más rápida y eficiente, con más de (Agregar años) años de experiencia conectando empresas con el
                 mejor talento. Nuestro proceso está garantizado, asegurando candidatos calificados en menos de 72 horas.
             </p>
             <div class="botones">
@@ -44,7 +44,7 @@
         <div class="info2"> <!-- Sección derecha: información -->
             <h1>¿Quiénes somos?</h1>
             <p>
-                En ESCARH conectamos a las empresas con el mejor talento, optimizando tiempos y garantizando calidad en cada contratación.</p>
+                En (Nombre de empresa) conectamos a las empresas con el mejor talento, optimizando tiempos y garantizando calidad en cada contratación.</p>
             <p>Nos especializamos en procesos eficientes, personalizados y con tecnología avanzada para ofrecer soluciones rápidas y efectivas.
             </p>
             <p>Más que un servicio, somos tu socio estratégico en la gestión del capital humano.</p>
@@ -153,7 +153,7 @@
                     <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
                     <!--<span class="faq-icon">●</span>-->
                     <div>
-                        <strong>¿Qué diferencia a ESCARH de otras agencias de reclutamiento?</strong><br>
+                        <strong>¿Qué diferencia a (Nombre de empresa) de otras agencias de reclutamiento?</strong><br>
                         <p>Nos enfocamos en procesos personalizados, atención cercana y uso de tecnología para atraer y filtrar candidatos de forma efectiva. Nuestro compromiso es entregar resultados rápidos sin descuidar la calidad del perfil.</p>
                     </div>
                 </div>
@@ -169,7 +169,7 @@
                     <img src="<?= base_url('img/icon-signo.gif') ?>" alt="Icon" class="faq-icon">
                     <!--<span class="faq-icon">●</span>-->
                     <div>
-                        <strong>¿Cuánto tiempo toma cubrir una vacante con ESCARH?</strong><br>
+                        <strong>¿Cuánto tiempo toma cubrir una vacante con (Nombre de empresa)?</strong><br>
                         <p>El tiempo puede variar según el perfil solicitado, pero al especializarnos en reclutamiento masivo, contamos con bases de datos activas y estrategias digitales que agilizan la captación de talento en el menor tiempo posible.</p>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
         <div class="row container-custom">
             <div class="col-md-5 text-md-start text-center mb-4">
                 <h2 class="fw-bold">¡Comienza ya tu reclutamiento!</h2>
-                <p>Si desea acceder a nuestros servicios de reclutamiento, complete el formulario a continuación para dar inicio a su proyecto. En ESCARH, nos especializamos en la búsqueda y selección de talento.</p>
+                <p>Si desea acceder a nuestros servicios de reclutamiento, complete el formulario a continuación para dar inicio a su proyecto. En (Nombre de empresa), nos especializamos en la búsqueda y selección de talento.</p>
             </div>
 
             <div class="col-md-7">
@@ -453,20 +453,20 @@
 </script>
 
 <script>
-const correoInput = document.getElementById('correo');
-const errorCorreo = document.getElementById('errorCorreo');
+    const correoInput = document.getElementById('correo');
+    const errorCorreo = document.getElementById('errorCorreo');
 
-correoInput.addEventListener('input', function() {
-    // Permitir solo letras, números, @ y puntos
-    this.value = this.value.replace(/[^a-zA-Z0-9@._]/g, '');
+    correoInput.addEventListener('input', function() {
+        // Permitir solo letras, números, @ y puntos
+        this.value = this.value.replace(/[^a-zA-Z0-9@._]/g, '');
 
-    // Validar formato básico: algo@dominio.com
-    const regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+        // Validar formato básico: algo@dominio.com
+        const regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
 
-    if(!regex.test(this.value)) {
-        errorCorreo.style.display = 'inline';
-    } else {
-        errorCorreo.style.display = 'none';
-    }
-});
+        if (!regex.test(this.value)) {
+            errorCorreo.style.display = 'inline';
+        } else {
+            errorCorreo.style.display = 'none';
+        }
+    });
 </script>

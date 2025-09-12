@@ -3,7 +3,7 @@
     <nav>
             <li class="logo">
                 <a href="" target="_blank">
-                    <img src="<?= base_url('img/1.png') ?>" style="mix-blend-mode: multiply;"> 
+                    <img src="<?= base_url('img/logo.png') ?>" style="mix-blend-mode: multiply;"> 
                 </a>
             </li>
 
